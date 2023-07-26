@@ -6,13 +6,13 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:33:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/16 18:35:59 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/07/26 21:44:29 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	size_t	len;
 
