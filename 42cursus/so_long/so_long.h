@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:39:10 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/26 21:47:06 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/07/27 22:11:01 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include "Libft/libft.h"
 # include "gnl/get_next_line.h"
+# include "ft_printf/ft_printf.h"
 # include "mlx/mlx.h"
 
 # define KEY_ESC 53
@@ -32,20 +33,12 @@
 # define KEY_D 2
 
 typedef struct s_img {
-	void	*dino;
+	void	*dongle;
 	void	*exit;
 	void	*flower;
 	void	*land;
 	void	*wall;
 }	t_img;
-
-typedef struct s_check
-{
-	int	y;
-	int	x;
-	int	collect;
-	int	**visited;
-}	t_check;
 
 typedef struct s_game {
 	void	*mlx;
@@ -60,19 +53,22 @@ typedef struct s_game {
 	t_img	img;
 	int		locate;
 	int		walk_cnt;
-	int		valid_path;
+	int		path_check_c;
 }	t_game;
 
 void	game_init(t_game *game, char *map);
 void	setting_map(t_game *game, char *map);
 char	*ft_append_map(char *prev_line, char *new_line);
+void	check_player_index(t_game *game, char *line);
 
-int		is_rectangular(char *line, int game_width);
 int		map_check(t_game *game);
+int		is_rectangular(char *line, int game_width);
 int		is_valid_map_wall(t_game *game);
 int		is_valid_map_params(t_game *game);
 
-// void	path_check(t_game *game);
+void	path_check(t_game *game);
+void	dfs(t_game *game, int location, char *map);
+int		check_move(int i, t_game *game);
 
 t_img	img_init(void *mlx);
 void	setting_img(t_game *game);

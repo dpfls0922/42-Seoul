@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:34:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/26 21:49:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/07/27 22:08:12 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,22 @@ void	game_init(t_game *game, char *map)
 		printf("map_check Error!\n");
 		exit(0);
 	}
-	//path_check(game);
+	path_check(game);
 	game->win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, "so_long");
 	setting_img(game);
+}
+
+void	check_player_index(t_game *game, char *line)
+{
+	int i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == 'P')
+			game->locate = i;
+		i++;
+	}
 }
 
 void	setting_map(t_game *game, char *map)
@@ -39,8 +52,12 @@ void	setting_map(t_game *game, char *map)
 		write(1, "File Error\n", 11);
 		exit(0);
 	}
-
 	game->line = get_next_line(fd);
+	if (ft_strlen(game->line) == 0)
+	{
+		write(1, "Error\n", 6);
+		exit(0);
+	}
 	game->width = ft_strlen(game->line) - 1;
 	game->height = 0;
 	game->walk_cnt = 0;
@@ -53,6 +70,7 @@ void	setting_map(t_game *game, char *map)
 		else
 			break ;
 	}
+	check_player_index(game, game->line);
 	free(line);
 	line = 0;
 	return ;
@@ -102,9 +120,15 @@ int	is_rectangular(char *line, int game_width)
 int	map_check(t_game *game)
 {
 	if (!is_valid_map_wall(game))
+	{
+		printf("Error\nMap wall is not valid!\n");
 		return (0);
+	}
 	if (!is_valid_map_params(game))
+	{
+		printf("Error\nMap parmas is not valid!\n");
 		return (0);
+	}
 	return (1);
 }
 
@@ -115,6 +139,11 @@ int	is_valid_map_wall(t_game *game)
 
 	col = 0;
 	line_width = ft_strlen(game->line) - 1;
+	if (line_width == 0)
+	{
+		printf("Empty\n");
+		exit(0);
+	}
 	while (col < line_width)
 	{
 		if (col < game->width && game->line[col] != '1')
@@ -165,10 +194,56 @@ int	is_valid_map_params(t_game *game)
 	return (1);
 }
 
-// 가능한 경로 있는지 확인 -> dfs로 확인할 것
-// void	path_check(t_game *game)
-// {
-// }
+void	path_check(t_game *game)
+{
+	char	*path_dfs;
+
+	path_dfs = ft_strdup(game->line);
+	if (!path_dfs)
+		return ;
+	game->path_check_c = 0;
+	dfs(game, game->locate, path_dfs);
+	free(path_dfs);
+	if (game->path_check_c != game->cnt_c)
+	{
+		printf("No path\n");
+		exit(0);
+	}
+}
+
+void	dfs(t_game *game, int location, char *map)
+{
+	int	up;
+	int	down;
+	int	left;
+	int	right;
+
+	up = location - game->width;
+	down = location + game->width;
+	left = location - 1;
+	right = location + 1;
+	if (map[location] == 'C')
+		game->path_check_c++;
+	map[location] = '1';
+	if (check_move(up, game) && map[up] != '1')
+		dfs(game, up, map);
+	if (check_move(down, game) && map[down] != '1')
+		dfs(game, down, map);
+	if (check_move(left, game) && map[left] != '1')
+		dfs(game, left, map);
+	if (check_move(right, game) && map[right] != '1')
+		dfs(game, right, map);
+}
+
+int	check_move(int i, t_game *game)
+{
+	int	end_index;
+
+	end_index = game->width * game->height - 1;
+	if (0 <= i && i <= end_index)
+		return (1);
+	return (0);
+}
 
 int	key_press(int keycode, t_game *game)
 {
@@ -246,7 +321,7 @@ t_img	img_init(void *mlx)
 	int		width;
 	int		height;
 
-	img.dino = mlx_xpm_file_to_image(mlx, "./images/dino.xpm", &width, &height);
+	img.dongle = mlx_xpm_file_to_image(mlx, "./images/dongle.xpm", &width, &height);
 	img.exit = mlx_xpm_file_to_image(mlx, "./images/exit.xpm", &width, &height);
 	img.flower = mlx_xpm_file_to_image(mlx, "./images/flower.xpm", &width, &height);
 	img.land = mlx_xpm_file_to_image(mlx, "./images/land.xpm", &width, &height);
@@ -278,7 +353,8 @@ void	put_img_to_map(t_game *game, int w, int h)
 		mlx_put_image_to_window(game->mlx, game->win, game->img.wall, w * 64, h * 64);
 	else if (game->line[h * game->width + w] == 'P')
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->img.dino, w * 64, h * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->img.land, w * 64, h * 64);
+		mlx_put_image_to_window(game->mlx, game->win, game->img.dongle, w * 64, h * 64);
 		game->locate = h * game->width + w;
 	}
 	else if (game->line[h * game->width + w] == 'C')
