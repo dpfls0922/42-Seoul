@@ -5,30 +5,46 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/30 17:30:33 by yerilee           #+#    #+#              #
-#    Updated: 2023/06/27 14:28:25 by yerilee          ###   ########.fr        #
+#    Created: 2023/07/20 20:58:07 by yerilee           #+#    #+#              #
+#    Updated: 2023/07/28 20:39:29 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc -Wall -Wextra -Werror
-SRCS = ft_printf.c ft_printf_detail.c
-NAME = libftprintf.a
+NAME = so_long
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+SRCS = main.c\
+		img.c \
+		key.c \
+		map.c \
+		path.c \
+		error_free.c \
+		Libft/ft_memcmp.c \
+		gnl/get_next_line.c \
+		gnl/get_next_line_utils.c \
+		ft_printf/ft_printf.c \
+		ft_printf/ft_printf_detail.c \
+
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+$(NAME) :$(OBJS)
+	make -C mlx
+	$(CC) $(CFLAGS) -L ./mlx -lmlx -framework OpenGL -framework AppKit -o $@ $^
 
-%.o: %.c
-	$(CC) -c $< -o $@
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -rf $(OBJS)
+clean :
+	make clean -C mlx
+	rm -f $(OBJS)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean : clean
+	rm -f $(NAME)
 
-re: fclean all
+re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all clean fclean re
