@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 11:21:13 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/29 19:24:42 by yerilee          ###   ########.fr       */
+/*   Created: 2023/03/23 15:48:08 by yerilee           #+#    #+#             */
+/*   Updated: 2023/07/29 19:24:52 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-char	*ft_strrchr(const char *s, int c);
-int		ft_strlenn(const char *s);
-
-#endif
+	i = (int)ft_strlenn(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i--;
+	}
+	return (0);
+}

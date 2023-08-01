@@ -6,7 +6,7 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 20:58:07 by yerilee           #+#    #+#              #
-#    Updated: 2023/07/28 20:39:29 by yerilee          ###   ########.fr        #
+#    Updated: 2023/07/29 19:25:15 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS = main.c\
 		path.c \
 		error_free.c \
 		Libft/ft_memcmp.c \
+		Libft/ft_strrchr.c \
+		Libft/ft_strlenn.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		ft_printf/ft_printf.c \

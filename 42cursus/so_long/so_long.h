@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:39:10 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/28 20:13:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:58:56 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void	dfs(t_game *game, int location, char *map);
 int		check_move(int i, t_game *game);
 
 t_img	img_init(void *mlx);
-void	setting_img(t_game *game);
-void	put_img_to_map(t_game *game, int w, int h);
+void	setting_img(t_game *game, int flag);
+void	put_img_to_map(t_game *game, int w, int h, int flag);
 
 int		key_press(int keycode, t_game *game);
 void	move_player(t_game *game, int i);
-void	player_loaction_init(t_game *game, int i);
+void	player_loaction_init(t_game *game, int i, int flag);
 int		print_walk_cnt(t_game *game);
 int		exit_game(t_game *game);
 

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 20:34:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/28 20:13:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 15:40:21 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	game_init(t_game *game, char *map)
 	path_check(game);
 	game->win = mlx_new_window(game->mlx, game->width * 64,
 			game->height * 64, "so_long");
-	setting_img(game);
+	setting_img(game, 0);
 }
 
 void	setting_map(t_game *game, char *map)
@@ -36,7 +36,7 @@ void	setting_map(t_game *game, char *map)
 	char	*line;
 
 	fd = open(map, O_RDONLY);
-	if (fd <= 0)
+	if (fd < 0)
 		error("File Error\n");
 	game->line = get_next_line(fd);
 	if (ft_strlen(game->line) == 0)
@@ -53,8 +53,8 @@ void	setting_map(t_game *game, char *map)
 					ft_strlen(game->line), ft_strlen(line));
 		else
 			break ;
+		ft_free_string(line);
 	}
-	is_rectangular(game);
 	check_player_index(game, game->line);
 	ft_free_string(line);
 }
@@ -67,23 +67,21 @@ char	*ft_append_map(char *prev_line, char *new_line, int len1, int len2)
 
 	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!str)
-		return (0);
-	i = 0;
-	j = 0;
-	while (j < len1)
 	{
+		ft_free_string(prev_line);
+		return (0);
+	}
+	i = 0;
+	j = -1;
+	while (++j < len1)
 		if (prev_line[j] != '\n')
 			str[i++] = prev_line[j];
-		j++;
-	}
-	j = 0;
-	while (j < len2)
-	{
+	j = -1;
+	while (++j < len2)
 		if (new_line[j] != '\n')
 			str[i++] = new_line[j];
-		j++;
-	}
 	str[i] = '\0';
+	ft_free_string(prev_line);
 	return (str);
 }
 
@@ -106,8 +104,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		error("argc != 2\n");
-	if (ft_strchr(argv[1], '.') == 0
-		|| ft_memcmp(ft_strchr(argv[1], '.'), ".ber", 4) != 0)
+	if (ft_strrchr(argv[1], '.') == 0
+		|| ft_memcmp(ft_strrchr(argv[1], '.'), ".ber\0", 5) != 0)
 		error("This file is not .ber file.\n");
 	game = malloc(sizeof(t_game));
 	if (!game)

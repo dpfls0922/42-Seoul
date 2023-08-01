@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 19:18:23 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/28 19:36:40 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 15:32:38 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	map_check(t_game *game)
 {
+	is_rectangular(game);
 	is_valid_map_wall(game);
 	is_valid_map_params(game);
 }

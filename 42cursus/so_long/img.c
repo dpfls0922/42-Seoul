@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 19:21:16 by yerilee           #+#    #+#             */
-/*   Updated: 2023/07/28 19:38:18 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:59:16 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,26 @@ t_img	img_init(void *mlx)
 	return (img);
 }
 
-void	setting_img(t_game *game)
+void	setting_img(t_game *game, int flag)
 {
 	int	hei;
 	int	wid;
 
 	hei = 0;
+	mlx_clear_window(game->mlx, game->win);
 	while (hei < game->height)
 	{
 		wid = 0;
 		while (wid < game->width)
 		{
-			put_img_to_map(game, wid, hei);
+			put_img_to_map(game, wid, hei, flag);
 			wid++;
 		}
 		hei++;
 	}
 }
 
-void	put_img_to_map(t_game *game, int w, int h)
+void	put_img_to_map(t_game *game, int w, int h, int flag)
 {
 	if (game->line[h * game->width + w] == '1')
 		mlx_put_image_to_window(game->mlx, game->win,
@@ -58,6 +59,9 @@ void	put_img_to_map(t_game *game, int w, int h)
 	{
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.land, w * 64, h * 64);
+		if (flag == 1)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->img.exit, w * 64, h * 64);
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.dongle, w * 64, h * 64);
 		game->locate = h * game->width + w;
