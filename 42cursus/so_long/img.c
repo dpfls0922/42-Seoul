@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 19:21:16 by yerilee           #+#    #+#             */
-/*   Updated: 2023/08/01 16:12:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 16:34:48 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_img	img_init(void *mlx)
 			"./textures/land.xpm", &width, &height);
 	img.wall = mlx_xpm_file_to_image(mlx,
 			"./textures/wall.xpm", &width, &height);
+	if (!img.dongle || !img.exit || !img.flower || !img.land || !img.wall)
+		error("Invalid img\n");
 	return (img);
 }
 
