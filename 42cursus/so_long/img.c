@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 19:21:16 by yerilee           #+#    #+#             */
-/*   Updated: 2023/08/01 14:59:16 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/08/01 16:12:33 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	setting_img(t_game *game, int flag)
 	int	wid;
 
 	hei = 0;
-	mlx_clear_window(game->mlx, game->win);
 	while (hei < game->height)
 	{
 		wid = 0;
