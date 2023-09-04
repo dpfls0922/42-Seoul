@@ -13,4 +13,4 @@
 |pipex|[파이프 구현하기](42cursus/pipex/README.md)|
 |push_swap|[제한된 명령어로 데이터 정렬 최적화 시키기](42cursus/push_swap/README.md)|
  
-(Updated 예정)
+(업데이트 예정)
