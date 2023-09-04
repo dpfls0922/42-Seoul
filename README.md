@@ -5,7 +5,7 @@
 ## 🌵 과제
 |과제명|과제내용|
 |:---|:---|
-|Libft|[c언어 라이브러리 구현하기](#11-overview)|
+|Libft|[c언어 라이브러리 구현하기](42cursus/Libft/README.md)|
 |ft_printf|[printf 함수 구현하기](#11-overview)|
 |get_next_line|[파일을 한 줄 씩 읽어들이는 함수 구현하기](#11-overview)|
 |Born2beRoot|[가상머신 개념 공부 및 설정하기](42cursus/born2beroot/born2beroot.md)|
