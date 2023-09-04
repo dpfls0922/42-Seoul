@@ -114,3 +114,7 @@
     ```
 
 	지도 파일에서 어떠한 허점이 발견된다면, 프로그램은 "Error\n" 과 여러분이 직접 정한 에러 메시지를 출력한 후 제대로 종료되어야 합니다.
+ 
+ # 구현한 게임 이미지
+ <img width="380" alt="image" src="https://github.com/dpfls0922/42_Seoul/assets/83818069/f06c2cb1-0bd7-45ab-9d84-82b5239aa4fb">
+
