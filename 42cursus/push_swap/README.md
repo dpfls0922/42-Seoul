@@ -230,6 +230,8 @@ a b
 | **Libft authorized** | Yes |
 | **Description** | Sort stacks |
 
+<br>
+
  프로젝트는 위 규칙들을 따라야 합니다:
 
 	모든 소스 파일들을 컴파일 하는 `Makefile`을 제출해야합니다. 리링크가 되면 안됩니다.
@@ -303,6 +305,7 @@ $>
 | Libft authorized | Yes |
 | Description | Execute the sorting instructions |
 
+<br>
 
   여러분은 스택 a에 들어갈 정수의 목록을 인자값으로 받는 `checker` 프로그램을 작성해야 합니다. 첫 번째로 들어오는 인자가 스택의 맨 위 (top) 에 와야 합니다. (순서에 주의하세요)
 
