@@ -12,5 +12,7 @@
 |so_long|[컴퓨터 그래픽 게임 만들기](42cursus/so_long/README.md)|
 |pipex|[파이프 구현하기](42cursus/pipex/README.md)|
 |push_swap|[제한된 명령어로 데이터 정렬 최적화 시키기](42cursus/push_swap/README.md)|
+|minishell|[bash shell 만들기](42cursus/push_swap/README.md)|
+|philosophers|[밥먹는 철학자 교착상태 해결하기](42cursus/philosophers/README.md)|
  
 (업데이트 예정)
