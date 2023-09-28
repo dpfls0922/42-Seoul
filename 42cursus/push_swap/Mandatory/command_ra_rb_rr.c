@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 20:16:51 by yerilee           #+#    #+#             */
-/*   Updated: 2023/09/27 15:58:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/09/28 16:48:03 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ void	rb(t_stack *b)
 
 void	rr(t_stack *a, t_stack *b)
 {
+	int	val;
+
 	if (a->first && b->first)
 	{
-		ra(a);
-		rb(b);
+		val = pop_top(a);
+		push_bottom(a, val, 0);
+		val = pop_top(b);
+		push_bottom(b, val, 0);
 		write(1, "rr\n", 3);
 	}
 }
