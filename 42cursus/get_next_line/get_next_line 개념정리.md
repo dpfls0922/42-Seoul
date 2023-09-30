@@ -13,17 +13,15 @@
 
 # get_next_line 진행과정
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/140d4c4d-87e6-4adb-893a-e97652575330/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9afae7b8-d826-453e-b2cc-6b0234187237/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9eb03b86-3e28-4a44-934c-9b248f4546be/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/495cc7be-5767-4ff7-acc0-66f826160183/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/62bf7f7b-cde0-490f-bac7-70c1f3ebc7d2/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/375c3b63-4cf6-4097-b702-611ed6ad57f2/Untitled.png)
+ <img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9dcafb3d-fdab-42cd-8064-11d5379a84ee" width="350" height="300"/>
+
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/43c8b073-4483-4ead-a9b9-b0ce57e17a8f" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/5dc42d53-70db-48a4-ad66-92911d3c9335" width="350" height="300"/>
+
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/0acdb3b6-728f-4002-b1ec-1be97f96ad31" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9a0d20ee-54f3-4cb0-868f-9a768ecb0228" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9cdb268d-1ef6-4e3d-9d32-110899d0bf6a" width="350" height="300"/>
+
     
 
 # 개념
@@ -53,9 +51,11 @@
     
     - open_max 값
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0475da12-cc4d-4e38-b134-b312ee31593a/Untitled.png)
+        ![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/eb3a4033-50bf-4e03-951d-e6694b078e52)
+
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/94a15054-5cf1-43cd-bc96-bd111f4b350c/Untitled.png)
+        ![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/7aa2d6b7-8247-4d96-81cb-68a4f5edbe20)
+
         
         open할 수 있는 파일의 개수
         
@@ -161,9 +161,9 @@ Unix 시스템에서 C언어의 OPEN_MAX는 limits.h에 정의돼있다.
 - 함수가 종료되면서 지역 포인터 변수 ptr 메모리가 소거되기 때문에, origin의 포인터 값이 변경 안됨 (swap과 비슷)
 - 하지만 이중 포인터를 사용하면, 함수가 종료 후 ptr 메모리가 소거되더라도 origin의 포인터가 변경되기 때문에 수정이 가능함
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cc1625e5-0299-479a-8ff9-0adc11a64905/Untitled.png)
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/a046298d-359b-43b2-942d-3bd69106b671" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/4fd9043b-86ad-4b42-87a6-c7391deff825" width="350" height="300"/>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/89887d22-4e1a-43b2-bfbc-3687a4230f2b/Untitled.png)
 
 ## **2. read함수가 0을 반환하는 경우**
 
