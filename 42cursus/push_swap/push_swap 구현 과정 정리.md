@@ -169,7 +169,8 @@ INT_MAX, INT_MIN의 경우도 예외처리해야 하니 주의할 것!
 
 ### partitioning
 
-![Alt text](image.png)
+![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/71d348d0-8b1a-4c72-afac-39a487e58487)
+
 
 ****정렬 규칙****:
 
