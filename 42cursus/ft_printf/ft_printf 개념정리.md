@@ -1,4 +1,4 @@
-# ft_pritnf 개념 정리
+# ft_pritnf 개념정리
 
 
 putnbr와 putstr으로는 만족할 수 없기 때문에 만드는 함수
@@ -127,8 +127,7 @@ va_end(ap)
     가변 인수의 타입을 전달하는 방식도 여러 가지를 생각할 수 있는데 printf와 같이 하나의 고정 인수를 통해 모든 가변 인수의 타입을 판단할 수 있는 힌트를 제공하는 방식이 가장 좋음
     
     printf는 첫 번째 고정 인수로 전달되는 서식 문자열에서 %d, %f, %s 같은 서식의 개수만큼 가변 인수를 읽음으로써 사실상 가변 인수의 개수를 전달받음
-    
-    https://aossuper8.tistory.com/17
+
     
 
 ## 3. printf 형식 문자열
@@ -268,7 +267,6 @@ ft_printf 함수에 로직은 가변인자를 초기화 하는 부분에서 시�
 4. precision 파싱 (.을 먼저 파싱하고 width와 비슷한 과정을 진행한다.)
 5. 파싱이 끝난 위치에 서식지정자가 있는지 확인하여 파싱 오류 체크 후 flag, width, precision이 모두 담긴 specifier 구조체와 가변인자를 인자로 넣어서 문자열에 이어서 나오는 서식지정자에 맞는 함수(ft_print_format)를 실행한다.
 
-https://err0rcode7.github.io/42seoul/2021/01/14/ft_printf.html
 
 ## 5. C library printf()의 line buffering
 
