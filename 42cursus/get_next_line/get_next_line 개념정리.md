@@ -13,14 +13,14 @@
 
 # get_next_line 진행과정
     
- <img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9dcafb3d-fdab-42cd-8064-11d5379a84ee" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/8149e8e7-2dd4-40b0-a23e-c65d9ffc797e" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/a67e5097-a82a-441a-b2c9-e37f2b272288" width="350" height="300"/>
 
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/43c8b073-4483-4ead-a9b9-b0ce57e17a8f" width="350" height="300"/>
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/5dc42d53-70db-48a4-ad66-92911d3c9335" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/a2ff97fa-fa6e-4641-9430-ff255ad3bd4b" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/945c9dea-9146-439d-8d65-97467806cf1e" width="350" height="300"/>
 
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/0acdb3b6-728f-4002-b1ec-1be97f96ad31" width="350" height="300"/>
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9a0d20ee-54f3-4cb0-868f-9a768ecb0228" width="350" height="300"/>
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/9cdb268d-1ef6-4e3d-9d32-110899d0bf6a" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/3ed9fed4-1f75-42c1-805c-575c9d6ffb2e" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/2a63db82-ac26-4e04-9cd1-f46bf1b13d0c" width="350" height="300"/>
 
     
 
@@ -50,12 +50,6 @@
     ```
     
     - open_max 값
-        
-        ![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/eb3a4033-50bf-4e03-951d-e6694b078e52)
-
-        
-        ![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/7aa2d6b7-8247-4d96-81cb-68a4f5edbe20)
-
         
         open할 수 있는 파일의 개수
         
@@ -161,8 +155,8 @@ Unix 시스템에서 C언어의 OPEN_MAX는 limits.h에 정의돼있다.
 - 함수가 종료되면서 지역 포인터 변수 ptr 메모리가 소거되기 때문에, origin의 포인터 값이 변경 안됨 (swap과 비슷)
 - 하지만 이중 포인터를 사용하면, 함수가 종료 후 ptr 메모리가 소거되더라도 origin의 포인터가 변경되기 때문에 수정이 가능함
 
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/a046298d-359b-43b2-942d-3bd69106b671" width="350" height="300"/>
-<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/4fd9043b-86ad-4b42-87a6-c7391deff825" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/89fefdcb-8133-4927-b6d1-db7078d2a6b9" width="350" height="300"/>
+<img src="https://github.com/dpfls0922/42-Seoul/assets/83818069/2cd782e2-0883-4896-813e-04cac14a1d16" width="350" height="300"/>
 
 
 ## **2. read함수가 0을 반환하는 경우**
