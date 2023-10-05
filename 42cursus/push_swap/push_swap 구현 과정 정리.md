@@ -169,7 +169,7 @@ INT_MAX, INT_MIN의 경우도 예외처리해야 하니 주의할 것!
 
 ### partitioning
 
-![image](https://github.com/dpfls0922/42-Seoul/assets/83818069/71d348d0-8b1a-4c72-afac-39a487e58487)
+![image](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F54495ea9-b612-49db-9ce8-7c66cb3bede7%2FUntitled.png&blockId=a3976fac-ab7d-4a27-a6b5-83db5842cfb7)
 
 
 ****정렬 규칙****:
