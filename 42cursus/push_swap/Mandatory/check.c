@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:12:47 by yerilee           #+#    #+#             */
-/*   Updated: 2023/09/27 20:51:24 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/10/10 21:44:32 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	is_sorted(t_stack *stack)
 	curr = stack->first;
 	while (curr->next)
 	{
-		if (curr->rank > curr->next->rank)
+		if (curr->val > curr->next->val)
 			return (0);
 		curr = curr->next;
 	}
