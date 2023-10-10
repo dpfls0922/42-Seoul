@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 20:33:27 by yerilee           #+#    #+#             */
-/*   Updated: 2023/09/27 20:33:48 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/10/10 21:45:24 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	run_rb(t_stack *b, int rb_cnt)
 {
 	if (rb_cnt < 0)
 	{
-		rb_cnt = -rb_cnt;
+		rb_cnt = rb_cnt * -1;
 		while (rb_cnt--)
 			rrb(b);
 	}
