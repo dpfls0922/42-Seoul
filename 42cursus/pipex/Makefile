@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yerilee <yerilee@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/24 16:08:20 by yerilee           #+#    #+#              #
-#    Updated: 2023/09/01 17:51:59 by yerilee          ###   ########seoul.kr   #
+#    Updated: 2023/11/23 01:46:18 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ NAME_BONUS = pipex_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = m_pipex.c m_pipex_utils.c m_split.c
+SRCS = Mandatory/m_pipex.c Mandatory/m_pipex_utils.c Mandatory/m_split.c
 
-SRCS_BONUS = b_pipex_bonus.c b_pipex_utils_bonus.c b_split_bonus.c b_gnl_bonus.c b_gnl_utils_bonus.c b_here_doc_bonus.c
+SRCS_BONUS = Bonus/b_pipex_bonus.c Bonus/b_pipex_utils_bonus.c Bonus/b_split_bonus.c Bonus/b_gnl_bonus.c Bonus/b_gnl_utils_bonus.c Bonus/b_here_doc_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
