@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/12 15:12:21 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 15:33:40 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,6 @@
 #define LEFT (phnum + 4) % N
 #define RIGHT (phnum + 1) % N
 
-typedef struct s_philo
-{
-	int			id;
-	int			right_fork;
-	int			left_fork;
-	int			eat_cnt;
-	int			last_meal;
-	int			last_time;
-	pthread_t	thread_id;
-	t_argv		*arg;
-}	t_philo;
-
 typedef struct s_argv
 {
 	int		argc;
@@ -48,11 +36,27 @@ typedef struct s_argv
 	int		must_eat;
 	int		is_dead;
 	int		all_ate;
-	t_philo	philo[200];
 
 	pthread_mutex_t	eat;
 	pthread_mutex_t	fork[200];
 	pthread_mutex_t	output;
 }	t_argv;
+
+typedef struct s_philo
+{
+	int			id;
+	int			right_fork;
+	int			left_fork;
+	int			eat_cnt;
+	int			last_meal;
+	int			last_time;
+	pthread_t	thread_id;
+	t_argv		*arg;
+}	t_philo; 
+
+int	check_numeric(const char *str, int i);
+int	ft_atoi(const char *str);
+
+int	ft_init_data(t_argv *digning);
 
 #endif
