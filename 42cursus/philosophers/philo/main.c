@@ -6,11 +6,32 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 20:03:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:06:44 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int	ft_create_philo(t_argv *digning, t_philo **philo)
+{
+	int	i;
+
+	i = 0;
+	digning->created_time = get_timestamp();
+	while (i < digning->numbers_of_philo)
+	{
+		(*philo)[i].last_meal = get_timestamp();
+		if (pthread_create(&((*philo)[i].thread_id), NULL, thread_routine, &philo[i]) != 0)
+		{
+			free(digning);
+			return (0);
+		}
+		usleep(100);
+		i++;
+	}
+	// 뮤텍스 제거
+	return (1);
+}
 
 int	ft_start_mutex(t_argv *digning)
 {
