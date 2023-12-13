@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 16:29:08 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:03:30 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_start_mutex(t_argv *digning)
 		free(digning);
 		return (0);
 	}
-	if (pthread_mutex_init(&digning->output, NULL) != 0)
+	if (pthread_mutex_init(&digning->status, NULL) != 0)
 	{
 		free(digning);
 		return (0);
@@ -49,7 +49,7 @@ void	ft_init_philo(t_argv *digning, t_philo **philo)
 	i = 0;
 	*philo = malloc(sizeof(t_philo) * digning->numbers_of_philo);
 	if (!philo)
-		return (1);
+		return ;
 	while (i < digning->numbers_of_philo)
 	{
 		(*philo)[i].id = i + 1;
@@ -77,12 +77,12 @@ int	ft_init_data(t_argv *digning)
 		return (1);
 	if (digning->argv[5])
 	{
-		digning->must_eat = ft_atoi(digning->argv[5]);
-		if (digning->must_eat <= 0)
+		digning->must_eat_cnt = ft_atoi(digning->argv[5]);
+		if (digning->must_eat_cnt <= 0)
 			return (1);
 	}
 	else
-		digning->must_eat = -1;
+		digning->must_eat_cnt = -1;
 	digning->is_dead = 0;
 	digning->all_ate = 0;
 	if (digning->numbers_of_philo < 1)
@@ -95,11 +95,13 @@ int	main(int argc, char **argv)
 	t_argv	*digning;
 	t_philo	**philo;
 
+	philo = NULL;
 	digning = (t_argv *)malloc(sizeof(t_argv));
 	if (!digning)
 		return (0);
 	if (argc != 5 && argc != 6)
 		return (-1);
+	// input error check
 	digning->argc = argc;
 	digning->argv=argv;
 	if(!ft_init_data(digning))
@@ -107,7 +109,7 @@ int	main(int argc, char **argv)
 	if(!ft_start_mutex(digning))
 		return (1);
 	ft_init_philo(digning, philo);
-	if(!ft_create_philo(digning))
+	if(!ft_create_philo(digning, philo))
 		return (1);
 	return (0);
 }
