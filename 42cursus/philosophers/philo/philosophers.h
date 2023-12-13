@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 15:33:40 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 16:16:06 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_argv
 	int		is_dead;
 	int		all_ate;
 
+	pthread_mutex_t	*fork;
 	pthread_mutex_t	eat;
-	pthread_mutex_t	fork[200];
 	pthread_mutex_t	output;
 }	t_argv;
 
@@ -51,7 +51,7 @@ typedef struct s_philo
 	int			last_meal;
 	int			last_time;
 	pthread_t	thread_id;
-	t_argv		*arg;
+	t_argv		*digning;
 }	t_philo; 
 
 int	check_numeric(const char *str, int i);
