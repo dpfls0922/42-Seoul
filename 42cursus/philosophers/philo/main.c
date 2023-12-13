@@ -6,11 +6,41 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 16:19:50 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 16:29:08 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int	ft_start_mutex(t_argv *digning)
+{
+	int	i;
+
+	i = 0;
+	digning->fork = malloc(sizeof(pthread_mutex_t) * digning->numbers_of_philo);
+	if (!digning->fork)
+		return (1);
+	while (i < digning->numbers_of_philo)
+	{
+		if (pthread_mutex_init(&digning->fork[i], NULL) != 0)
+		{
+			free(digning);
+			return (0);
+		}
+		i++;
+	}
+	if (pthread_mutex_init(&digning->eat, NULL) != 0)
+	{
+		free(digning);
+		return (0);
+	}
+	if (pthread_mutex_init(&digning->output, NULL) != 0)
+	{
+		free(digning);
+		return (0);
+	}
+	return (1);
+}
 
 void	ft_init_philo(t_argv *digning, t_philo **philo)
 {
