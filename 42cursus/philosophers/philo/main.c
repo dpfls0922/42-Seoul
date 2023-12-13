@@ -6,11 +6,27 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 20:06:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:07:28 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	*thread_routine(void *ptr)
+{
+	t_philo	*philosopher;
+
+	philosopher = (t_philo *)ptr;
+	while (!(philosopher->digning->is_dead)
+		&& (philosopher->eat_cnt != philosopher->digning->must_eat_cnt))
+	{
+		eating(philosopher);
+		print_status(philosopher->digning, philosopher->id, "is sleeping");
+		sleeping(philosopher->digning->time_to_sleep, philosopher->digning);
+		print_status(philosopher->digning, philosopher->id, "is thinking");
+	}
+	return (NULL);
+}
 
 int	ft_create_philo(t_argv *digning, t_philo **philo)
 {
