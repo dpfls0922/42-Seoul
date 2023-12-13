@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 21:04:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 21:24:17 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,28 @@ void	sleeping(t_argv *digining, long long time_to_sleep)
 			break ;
 		usleep(500);
 	}
+}
+
+void	grabbing_fork(t_philo *philosopher)
+{
+	pthread_mutex_lock(philosopher->right_fork);
+	print_status(philosopher->digning, philosopher->id, "has taken a fork");
+	pthread_mutex_lock(philosopher->left_fork);
+	print_status(philosopher->digning, philosopher->id, "has taken a fork");
+}
+
+void	eating(t_philo *philosopher)
+{
+	grabbing_fork(philosopher);
+	print_status(philosopher->digning, philosopher->id, "is eating");
+	philosopher->last_meal = get_timestamp();
+	sleeping(philosopher->digning, philosopher->digning->time_to_eat);
+	// philosopher->digning->total++;
+	pthread_mutex_lock(&philosopher->digning->eat);
+	philosopher->eat_cnt++;
+	pthread_mutex_unlock(&philosopher->digning->eat);
+	pthread_mutex_unlock(philosopher->right_fork);
+	pthread_mutex_unlock(philosopher->left_fork);
 }
 
 void	*thread_routine(void *ptr)
