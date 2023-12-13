@@ -6,11 +6,21 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 20:07:28 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:08:09 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+long	get_timestamp(void)
+{
+	struct timeval	current_time;
+	long			result;
+
+	gettimeofday(&current_time, NULL);
+	result = ((size_t)current_time.tv_sec * 1000) + ((size_t)current_time.tv_usec / 1000);
+	return (result);
+}
 
 void	*thread_routine(void *ptr)
 {
