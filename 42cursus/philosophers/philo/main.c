@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 21:03:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 21:04:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_status(t_argv *digning, int philo_id, char *status)
 	pthread_mutex_unlock(&digning->status);
 }
 
-void	sleeping(long long time_to_sleep, t_argv *digining)
+void	sleeping(t_argv *digining, long long time_to_sleep)
 {
 	long long	begin;
 
@@ -56,7 +56,7 @@ void	*thread_routine(void *ptr)
 	{
 		eating(philosopher);
 		print_status(philosopher->digning, philosopher->id, "is sleeping");
-		sleeping(philosopher->digning->time_to_sleep, philosopher->digning);
+		sleeping(philosopher->digning, philosopher->digning->time_to_sleep);
 		print_status(philosopher->digning, philosopher->id, "is thinking");
 	}
 	return (NULL);
