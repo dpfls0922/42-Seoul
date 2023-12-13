@@ -6,11 +6,35 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 15:37:32 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 16:19:50 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	ft_init_philo(t_argv *digning, t_philo **philo)
+{
+	int		i;
+
+	i = 0;
+	*philo = malloc(sizeof(t_philo) * digning->numbers_of_philo);
+	if (!philo)
+		return (1);
+	while (i < digning->numbers_of_philo)
+	{
+		(*philo)[i].id = i + 1;
+		(*philo)[i].eat_cnt = 0;
+		(*philo)[i].right_fork = &digning->fork[i];
+		if (i == (digning->numbers_of_philo - 1))
+			(*philo)[i].left_fork = &digning->fork[0];
+		else
+			(*philo)[i].left_fork = &digning->fork[i + 1];
+		(*philo)[i].last_meal = 0;
+		(*philo)[i].last_time = 0;
+		(*philo)[i].digning = digning;
+		i++;
+	}
+}
 
 int	ft_init_data(t_argv *digning)
 {
@@ -38,7 +62,8 @@ int	ft_init_data(t_argv *digning)
 
 int	main(int argc, char **argv)
 {
-	t_argv *digning;
+	t_argv	*digning;
+	t_philo	**philo;
 
 	digning = (t_argv *)malloc(sizeof(t_argv));
 	if (!digning)
@@ -51,7 +76,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if(!ft_start_mutex(digning))
 		return (1);
-	ft_init_philo(digning);
+	ft_init_philo(digning, philo);
 	if(!ft_create_philo(digning))
 		return (1);
 	return (0);
