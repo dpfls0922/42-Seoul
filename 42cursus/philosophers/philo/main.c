@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/12 17:14:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/13 15:37:32 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	digning = (t_argv *)malloc(sizeof(t_argv));
 	if (!digning)
 		return (0);
-	if (argc != 5 || argc != 6)
+	if (argc != 5 && argc != 6)
 		return (-1);
 	digning->argc = argc;
 	digning->argv=argv;
