@@ -6,13 +6,13 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 21:24:17 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/14 19:12:24 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-long	get_timestamp(void)
+long long	get_timestamp(void)
 {
 	struct timeval	current_time;
 	long			result;
