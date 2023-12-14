@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/14 19:12:24 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/14 19:14:47 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long long	get_timestamp(void)
 {
 	struct timeval	current_time;
-	long			result;
+	long long		result;
 
 	gettimeofday(&current_time, NULL);
 	result = ((size_t)current_time.tv_sec * 1000) + ((size_t)current_time.tv_usec / 1000);
