@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/15 15:34:13 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:35:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,7 +248,6 @@ int	ft_init_data(t_argv *digning)
 	else
 		digning->must_eat_cnt = -1;
 	digning->is_dead = 0;
-	digning->all_ate = 0;
 	if (digning->numbers_of_philo < 1)
 		return (0);
 	return (1);

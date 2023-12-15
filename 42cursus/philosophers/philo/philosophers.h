@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/15 15:31:49 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:35:18 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_argv
 	int			must_eat_cnt;
 	int			total_eat_cnt;
 	int			is_dead;
-	int			all_ate;
 	long long	created_time;
 
 	pthread_mutex_t	*fork;
