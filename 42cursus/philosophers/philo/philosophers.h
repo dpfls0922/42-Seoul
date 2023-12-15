@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/13 21:07:35 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:31:49 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ typedef struct s_argv
 	int			time_to_eat;
 	int			time_to_sleep;
 	int			must_eat_cnt;
+	int			total_eat_cnt;
 	int			is_dead;
 	int			all_ate;
 	long long	created_time;
 
 	pthread_mutex_t	*fork;
-	pthread_mutex_t	eat;
+	pthread_mutex_t	eat_cnt;
 	pthread_mutex_t	status;
 }	t_argv;
 

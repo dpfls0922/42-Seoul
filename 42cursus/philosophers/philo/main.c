@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/14 19:14:47 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:32:58 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	eating(t_philo *philosopher)
 	print_status(philosopher->digning, philosopher->id, "is eating");
 	philosopher->last_meal = get_timestamp();
 	sleeping(philosopher->digning, philosopher->digning->time_to_eat);
-	// philosopher->digning->total++;
-	pthread_mutex_lock(&philosopher->digning->eat);
+	philosopher->digning->total_eat_cnt++;
+	pthread_mutex_lock(&philosopher->digning->eat_cnt);
 	philosopher->eat_cnt++;
-	pthread_mutex_unlock(&philosopher->digning->eat);
+	pthread_mutex_unlock(&philosopher->digning->eat_cnt);
 	pthread_mutex_unlock(philosopher->right_fork);
 	pthread_mutex_unlock(philosopher->left_fork);
 }
@@ -101,7 +101,8 @@ int	ft_create_philo(t_argv *digning, t_philo **philo)
 		usleep(100);
 		i++;
 	}
-	// 뮤텍스 제거
+	if (!ft_join_destroy(digning, *philo))
+		return (0);
 	return (1);
 }
 
@@ -122,7 +123,7 @@ int	ft_start_mutex(t_argv *digning)
 		}
 		i++;
 	}
-	if (pthread_mutex_init(&digning->eat, NULL) != 0)
+	if (pthread_mutex_init(&digning->eat_cnt, NULL) != 0)
 	{
 		free(digning);
 		return (0);
@@ -153,7 +154,6 @@ void	ft_init_philo(t_argv *digning, t_philo **philo)
 		else
 			(*philo)[i].left_fork = &digning->fork[i + 1];
 		(*philo)[i].last_meal = 0;
-		(*philo)[i].last_time = 0;
 		(*philo)[i].digning = digning;
 		i++;
 	}
