@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 21:16:14 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 21:18:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,23 +96,22 @@ int	check_total_eat(t_argv *digning)
 
 int	check_dead(t_argv *digning)
 {
-	int			i;
-	long long	curent_time;
+	long long	current_time;
+	long long	last_meal_time;
 
-	i = 1;
-	while (i <= digning->numbers_of_philo)
+	while (digning->numbers_of_philo >= 1)
 	{
 		if (check_total_eat(digning))
 			return (1);
-		curent_time = get_timestamp();
-		if (curent_time - digning->philo[i - 1].last_meal >= digning->time_to_die)
+		current_time = get_timestamp();
+		last_meal_time = digning->philo[0].last_meal;
+		if (current_time - last_meal_time >= digning->time_to_die)
 		{
 			digning->is_dead = 1;
-			// printf로 메세지 출력하는 것으로 바꿀 것
-			print_status(digning, digning->philo->id, "died");
+			pthread_mutex_lock(&digning->status);
+			printf("[%lld] Philosopher 1 died\n", current_time - digning->created_time);
 			return (1);
 		}
-		i++;
 	}
 	return (0);
 }
