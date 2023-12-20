@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 20:23:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 21:16:14 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,24 @@ void	sleeping(t_argv *digning, long long time_to_sleep)
 	}
 }
 
-void	grabbing_fork(t_argv *digning, t_philo *philosopher)
+void	grabbing_fork(t_philo *philosopher)
 {
 	pthread_mutex_lock(philosopher->right_fork);
-	print_status(digning, philosopher->id, "has taken a fork");
+	print_status(philosopher->digning, philosopher->id, "has taken a fork");
 	pthread_mutex_lock(philosopher->left_fork);
-	print_status(digning, philosopher->id, "has taken a fork");
+	print_status(philosopher->digning, philosopher->id, "has taken a fork");
 }
 
-void	eating(t_argv *digning, t_philo *philosopher)
+void	eating(t_philo *philosopher)
 {
-	grabbing_fork(digning, philosopher);
-	print_status(digning, philosopher->id, "is eating");
+	grabbing_fork(philosopher);
+	print_status(philosopher->digning, philosopher->id, "is eating");
 	philosopher->last_meal = get_timestamp();
-	sleeping(digning, digning->time_to_eat);
-	digning->total_eat_cnt++;
-	pthread_mutex_lock(&digning->eat_cnt);
+	sleeping(philosopher->digning, philosopher->digning->time_to_eat);
+	philosopher->digning->total_eat_cnt++;
+	pthread_mutex_lock(&philosopher->digning->eat_cnt);
 	philosopher->eat_cnt++;
-	pthread_mutex_unlock(&digning->eat_cnt);
+	pthread_mutex_unlock(&philosopher->digning->eat_cnt);
 	pthread_mutex_unlock(philosopher->right_fork);
 	pthread_mutex_unlock(philosopher->left_fork);
 }
@@ -76,7 +76,7 @@ void	*thread_routine(void *ptr)
 	while (!(philosopher->digning->is_dead)
 		&& (philosopher->eat_cnt != philosopher->digning->must_eat_cnt))
 	{
-		eating(philosopher->digning, philosopher);
+		eating(philosopher);
 		print_status(philosopher->digning, philosopher->id, "is sleeping");
 		sleeping(philosopher->digning, philosopher->digning->time_to_sleep);
 		print_status(philosopher->digning, philosopher->id, "is thinking");
