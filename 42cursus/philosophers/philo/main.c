@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 17:30:07 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 20:23:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	*thread_routine(void *ptr)
 	t_philo	*philosopher;
 
 	philosopher = (t_philo *)ptr;
-	
-	printf("thread\n");
 	while (!(philosopher->digning->is_dead)
 		&& (philosopher->eat_cnt != philosopher->digning->must_eat_cnt))
 	{
@@ -147,7 +145,6 @@ int ft_join_destroy(t_argv *digning) {
 	i = 0;
 	while (i < digning->numbers_of_philo)
 	{
-		printf("here~\n");
 		if (pthread_join(digning->philo[i].thread_id, NULL) != 0)
 		{
 			free(digning);
@@ -160,26 +157,25 @@ int ft_join_destroy(t_argv *digning) {
 
 int	ft_create_philo(t_argv *digning)
 {
-	int	i;
+	int		i;
+	t_philo *p;
 
 	i = 0;
+	p = &digning->philo[i];
 	digning->created_time = get_timestamp();
 	while (i < digning->numbers_of_philo)
 	{
 		digning->philo[i].last_meal = get_timestamp();
-		t_philo *n = &digning->philo[i];
-		if (pthread_create(&n->thread_id, NULL, &thread_routine, n) != 0)
+		if (pthread_create(&p->thread_id, NULL, &thread_routine, p) != 0)
 		{
 			free(digning);
 			return (0);
 		}
-		// usleep(100);
+		usleep(100);
 		i++;
 	}
-	printf("here!\n");
-	// if (!ft_join_destroy(digning))
-	// 	return (0);
-	// printf("here!!\n");
+	if (!ft_join_destroy(digning))
+		return (0);
 	return (1);
 }
 
@@ -225,6 +221,7 @@ void	ft_init_philo(t_argv *digning)
 	{
 		digning->philo[i].id = i + 1;
 		digning->philo[i].eat_cnt = 0;
+		digning->philo[i].digning = digning;
 		digning->philo[i].right_fork = &digning->fork[i];
 		if (i == (digning->numbers_of_philo - 1))
 			digning->philo[i].left_fork = &digning->fork[0];
@@ -275,6 +272,5 @@ int	main(int argc, char **argv)
 	ft_init_philo(digning);
 	if(!ft_create_philo(digning))
 		return (1);
-	printf("end\n");
 	return (0);
 }
