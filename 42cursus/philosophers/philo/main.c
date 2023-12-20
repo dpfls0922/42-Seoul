@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/15 15:37:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:25:24 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	print_status(t_argv *digning, int philo_id, char *status)
 	pthread_mutex_unlock(&digning->status);
 }
 
-void	sleeping(t_argv *digining, long long time_to_sleep)
+void	sleeping(t_argv *digning, long long time_to_sleep)
 {
 	long long	begin;
 
 	begin = get_timestamp();
-	while(!(digining->is_dead))
+	while(!(digning->is_dead))
 	{
 		if (get_timestamp() - begin >= time_to_sleep)
 			break ;
@@ -94,20 +94,20 @@ int	check_total_eat(t_argv *digning)
 	return (0);
 }
 
-int	check_dead(t_argv *digining, t_philo *philo)
+int	check_dead(t_argv *digning, t_philo *philo)
 {
 	int			i;
 	long long	curent_time;
 
 	i = 1;
-	while (i <= digining->numbers_of_philo)
+	while (i <= digning->numbers_of_philo)
 	{
-		if (check_total_eat(digining))
+		if (check_total_eat(digning))
 			return (1);
 		curent_time = get_timestamp();
-		if (curent_time - philo[i - 1].last_meal >= digining->time_to_die)
+		if (curent_time - philo[i - 1].last_meal >= digning->time_to_die)
 		{
-			digining->is_dead = 1;
+			digning->is_dead = 1;
 			// printf로 메세지 출력하는 것으로 바꿀 것
 			print_status(philo->digning, philo->id, "died");
 			return (1);
