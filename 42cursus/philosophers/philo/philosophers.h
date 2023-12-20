@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/15 15:35:18 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 19:40:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/time.h>
+
+typedef struct s_philo
+{
+	int				id;
+	int				eat_cnt;
+	long long		last_meal;
+	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	*left_fork;
+	pthread_t		thread_id;
+	struct s_argv	*digning;
+}	t_philo; 
 
 typedef struct s_argv
 {
@@ -31,23 +42,12 @@ typedef struct s_argv
 	int			total_eat_cnt;
 	int			is_dead;
 	long long	created_time;
+	t_philo		*philo;
 
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	eat_cnt;
 	pthread_mutex_t	status;
 }	t_argv;
-
-typedef struct s_philo
-{
-	int				id;
-	int				eat_cnt;
-	long long		last_meal;
-	long long		last_time;
-	pthread_mutex_t	*right_fork;
-	pthread_mutex_t	*left_fork;
-	pthread_t		thread_id;
-	t_argv			*digning;
-}	t_philo; 
 
 int	check_numeric(const char *str, int i);
 int	ft_atoi(const char *str);

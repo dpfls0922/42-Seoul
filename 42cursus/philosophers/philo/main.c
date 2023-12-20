@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 15:56:57 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 16:32:01 by yerilee          ###   ########.fr       */
+/*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
+/*   Updated: 2023/12/20 17:30:07 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,24 @@ void	sleeping(t_argv *digning, long long time_to_sleep)
 	}
 }
 
-void	grabbing_fork(t_philo *philosopher)
+void	grabbing_fork(t_argv *digning, t_philo *philosopher)
 {
 	pthread_mutex_lock(philosopher->right_fork);
-	print_status(philosopher->digning, philosopher->id, "has taken a fork");
+	print_status(digning, philosopher->id, "has taken a fork");
 	pthread_mutex_lock(philosopher->left_fork);
-	print_status(philosopher->digning, philosopher->id, "has taken a fork");
+	print_status(digning, philosopher->id, "has taken a fork");
 }
 
-void	eating(t_philo *philosopher)
+void	eating(t_argv *digning, t_philo *philosopher)
 {
-	grabbing_fork(philosopher);
-	print_status(philosopher->digning, philosopher->id, "is eating");
+	grabbing_fork(digning, philosopher);
+	print_status(digning, philosopher->id, "is eating");
 	philosopher->last_meal = get_timestamp();
-	sleeping(philosopher->digning, philosopher->digning->time_to_eat);
-	philosopher->digning->total_eat_cnt++;
-	pthread_mutex_lock(&philosopher->digning->eat_cnt);
+	sleeping(digning, digning->time_to_eat);
+	digning->total_eat_cnt++;
+	pthread_mutex_lock(&digning->eat_cnt);
 	philosopher->eat_cnt++;
-	pthread_mutex_unlock(&philosopher->digning->eat_cnt);
+	pthread_mutex_unlock(&digning->eat_cnt);
 	pthread_mutex_unlock(philosopher->right_fork);
 	pthread_mutex_unlock(philosopher->left_fork);
 }
@@ -73,10 +73,12 @@ void	*thread_routine(void *ptr)
 	t_philo	*philosopher;
 
 	philosopher = (t_philo *)ptr;
+	
+	printf("thread\n");
 	while (!(philosopher->digning->is_dead)
 		&& (philosopher->eat_cnt != philosopher->digning->must_eat_cnt))
 	{
-		eating(philosopher);
+		eating(philosopher->digning, philosopher);
 		print_status(philosopher->digning, philosopher->id, "is sleeping");
 		sleeping(philosopher->digning, philosopher->digning->time_to_sleep);
 		print_status(philosopher->digning, philosopher->id, "is thinking");
@@ -94,7 +96,7 @@ int	check_total_eat(t_argv *digning)
 	return (0);
 }
 
-int	check_dead(t_argv *digning, t_philo *philo)
+int	check_dead(t_argv *digning)
 {
 	int			i;
 	long long	curent_time;
@@ -105,11 +107,11 @@ int	check_dead(t_argv *digning, t_philo *philo)
 		if (check_total_eat(digning))
 			return (1);
 		curent_time = get_timestamp();
-		if (curent_time - philo[i - 1].last_meal >= digning->time_to_die)
+		if (curent_time - digning->philo[i - 1].last_meal >= digning->time_to_die)
 		{
 			digning->is_dead = 1;
 			// printf로 메세지 출력하는 것으로 바꿀 것
-			print_status(philo->digning, philo->id, "died");
+			print_status(digning, digning->philo->id, "died");
 			return (1);
 		}
 		i++;
@@ -133,29 +135,30 @@ void	mutex_destroy(t_argv *digning, t_philo *philo)
 	}
 }
 
-int ft_join_destroy(t_argv *digning, t_philo *philo) {
+int ft_join_destroy(t_argv *digning) {
 	int	i;
 
-	if (check_dead(digning, philo))
+	if (check_dead(digning))
 	{
-		mutex_destroy(digning, philo);
+		mutex_destroy(digning, digning->philo);
 		free(digning);
 		return (0);
 	}
 	i = 0;
-	 while (i < digning->numbers_of_philo)
+	while (i < digning->numbers_of_philo)
 	{
-		if (pthread_join(philo[i].thread_id, NULL) != 0)
+		printf("here~\n");
+		if (pthread_join(digning->philo[i].thread_id, NULL) != 0)
 		{
-			 free(digning);
+			free(digning);
 			return (0);
 		}
-		 i++;
+		i++;
 	}
 	return (1);
 }
 
-int	ft_create_philo(t_argv *digning, t_philo **philo)
+int	ft_create_philo(t_argv *digning)
 {
 	int	i;
 
@@ -163,17 +166,20 @@ int	ft_create_philo(t_argv *digning, t_philo **philo)
 	digning->created_time = get_timestamp();
 	while (i < digning->numbers_of_philo)
 	{
-		(*philo)[i].last_meal = get_timestamp();
-		if (pthread_create(&((*philo)[i].thread_id), NULL, thread_routine, &philo[i]) != 0)
+		digning->philo[i].last_meal = get_timestamp();
+		t_philo *n = &digning->philo[i];
+		if (pthread_create(&n->thread_id, NULL, &thread_routine, n) != 0)
 		{
 			free(digning);
 			return (0);
 		}
-		usleep(100);
+		// usleep(100);
 		i++;
 	}
-	if (!ft_join_destroy(digning, *philo))
-		return (0);
+	printf("here!\n");
+	// if (!ft_join_destroy(digning))
+	// 	return (0);
+	// printf("here!!\n");
 	return (1);
 }
 
@@ -207,25 +213,24 @@ int	ft_start_mutex(t_argv *digning)
 	return (1);
 }
 
-void	ft_init_philo(t_argv *digning, t_philo **philo)
+void	ft_init_philo(t_argv *digning)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	*philo = malloc(sizeof(t_philo) * digning->numbers_of_philo);
-	if (!philo)
+	digning->philo = malloc(sizeof(t_argv) * (digning->numbers_of_philo));
+	if (!digning->philo)
 		return ;
 	while (i < digning->numbers_of_philo)
 	{
-		(*philo)[i].id = i + 1;
-		(*philo)[i].eat_cnt = 0;
-		(*philo)[i].right_fork = &digning->fork[i];
+		digning->philo[i].id = i + 1;
+		digning->philo[i].eat_cnt = 0;
+		digning->philo[i].right_fork = &digning->fork[i];
 		if (i == (digning->numbers_of_philo - 1))
-			(*philo)[i].left_fork = &digning->fork[0];
+			digning->philo[i].left_fork = &digning->fork[0];
 		else
-			(*philo)[i].left_fork = &digning->fork[i + 1];
-		(*philo)[i].last_meal = 0;
-		(*philo)[i].digning = digning;
+			digning->philo[i].left_fork = &digning->fork[i + 1];
+		digning->philo[i].last_meal = 0;
 		i++;
 	}
 }
@@ -254,9 +259,7 @@ int	ft_init_data(t_argv *digning)
 int	main(int argc, char **argv)
 {
 	t_argv	*digning;
-	t_philo	**philo;
 
-	philo = NULL;
 	digning = (t_argv *)malloc(sizeof(t_argv));
 	if (!digning)
 		return (0);
@@ -269,8 +272,9 @@ int	main(int argc, char **argv)
 		return (1);
 	if(!ft_start_mutex(digning))
 		return (1);
-	ft_init_philo(digning, philo);
-	if(!ft_create_philo(digning, philo))
+	ft_init_philo(digning);
+	if(!ft_create_philo(digning))
 		return (1);
+	printf("end\n");
 	return (0);
 }
