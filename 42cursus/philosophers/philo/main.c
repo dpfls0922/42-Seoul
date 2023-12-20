@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 21:19:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/20 21:20:41 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,9 +184,6 @@ int	ft_start_mutex(t_argv *digning)
 	int	i;
 
 	i = 0;
-	digning->fork = malloc(sizeof(pthread_mutex_t) * digning->numbers_of_philo);
-	if (!digning->fork)
-		return (1);
 	while (i < digning->numbers_of_philo)
 	{
 		if (pthread_mutex_init(&digning->fork[i], NULL) != 0)
@@ -214,9 +211,6 @@ void	ft_init_philo(t_argv *digning)
 	int	i;
 
 	i = 0;
-	digning->philo = malloc(sizeof(t_argv) * (digning->numbers_of_philo));
-	if (!digning->philo)
-		return ;
 	while (i < digning->numbers_of_philo)
 	{
 		digning->philo[i].id = i + 1;
