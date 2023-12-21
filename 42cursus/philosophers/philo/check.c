@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:24:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 20:02:11 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	check_dead(t_argv *digning)
 			digning->is_dead = 1;
 			pthread_mutex_lock(&digning->status);
 			printf("%lld 1 died\n", current_time - digning->created_time);
+			pthread_mutex_unlock(&digning->status);
 			return (1);
 		}
 	}
