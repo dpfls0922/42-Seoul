@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 21:21:07 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:05:15 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,13 @@ typedef struct s_argv
 	pthread_mutex_t	status;
 }	t_argv;
 
-int	check_numeric(const char *str, int i);
-int	ft_atoi(const char *str);
+int		check_numeric(const char *str, int i);
+int		ft_atoi(const char *str);
 
-int	ft_init_data(t_argv *digning);
+
+int		ft_init_mutex(t_argv *digning);
+void	ft_init_philo(t_argv *digning);
+int		ft_init_data(t_argv *digning);
+
 
 #endif
