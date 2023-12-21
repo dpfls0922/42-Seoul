@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:08:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:24:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	check_total_eat(t_argv *digning)
 {
 	if (digning->argc == 6)
 	{
-		if (digning->total_eat_cnt >= digning->numbers_of_philo * digning->must_eat_cnt)
+		if (digning->total_eat_cnt
+			>= digning->numbers_of_philo * digning->must_eat_cnt)
 			return (1);
 	}
 	return (0);

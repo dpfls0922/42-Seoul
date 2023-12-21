@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:20:59 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:21:01 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:26:59 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_create_philo(t_argv *digning)
 {
 	int		i;
-	t_philo *p;
+	t_philo	*p;
 
 	i = 0;
 	digning->created_time = get_timestamp();
