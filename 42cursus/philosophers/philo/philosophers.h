@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:15:29 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:18:19 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			ft_init_mutex(t_argv *digning);
 void		ft_init_philo(t_argv *digning);
 int			ft_init_data(t_argv *digning);
 
+int			ft_create_philo(t_argv *digning);
 
 void		grabbing_fork(t_philo *philosopher);
 void		eating(t_philo *philosopher);
