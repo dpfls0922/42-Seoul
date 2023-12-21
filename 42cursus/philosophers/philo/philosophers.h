@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:10:57 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:15:29 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,25 @@ typedef struct s_argv
 	pthread_mutex_t	status;
 }	t_argv;
 
-int		check_numeric(const char *str, int i);
-int		ft_atoi(const char *str);
+
+int			check_numeric(const char *str, int i);
+int			ft_atoi(const char *str);
+
+long long	get_timestamp(void);
+
+int			ft_init_mutex(t_argv *digning);
+void		ft_init_philo(t_argv *digning);
+int			ft_init_data(t_argv *digning);
 
 
-int		ft_init_mutex(t_argv *digning);
-void	ft_init_philo(t_argv *digning);
-int		ft_init_data(t_argv *digning);
+void		grabbing_fork(t_philo *philosopher);
+void		eating(t_philo *philosopher);
+void		sleeping(t_argv *digning, long long time_to_sleep);
+void		print_status(t_argv *digning, int philo_id, char *status);
+void		*thread_routine(void *ptr);
 
 
-void	grabbing_fork(t_philo *philosopher);
-void	eating(t_philo *philosopher);
-void	sleeping(t_argv *digning, long long time_to_sleep);
-void	print_status(t_argv *digning, int philo_id, char *status);
-void	*thread_routine(void *ptr);
-
-
-int		check_total_eat(t_argv *digning);
-int		check_dead(t_argv *digning);
+int			check_total_eat(t_argv *digning);
+int			check_dead(t_argv *digning);
 
 #endif
