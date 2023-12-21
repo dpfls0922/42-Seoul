@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/20 21:23:36 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/21 19:00:09 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	print_status(t_argv *digning, int philo_id, char *status)
 	pthread_mutex_lock(&digning->status);
 	if (!(digning->is_dead))
 	{
-		printf("[%lld] ", get_timestamp() - digning->created_time);
-		printf("Philosopher %d %s\n", philo_id, status);
+		printf("%lld ", get_timestamp() - digning->created_time);
+		printf("%d %s\n", philo_id, status);
 	}
 	pthread_mutex_unlock(&digning->status);
 }
@@ -109,7 +109,7 @@ int	check_dead(t_argv *digning)
 		{
 			digning->is_dead = 1;
 			pthread_mutex_lock(&digning->status);
-			printf("[%lld] Philosopher 1 died\n", current_time - digning->created_time);
+			printf("%lld 1 died\n", current_time - digning->created_time);
 			return (1);
 		}
 	}
