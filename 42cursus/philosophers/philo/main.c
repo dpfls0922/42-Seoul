@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:27:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 20:06:23 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (argc != 5 && argc != 6)
 		return (-1);
-	// input error check
 	digning->argc = argc;
 	digning->argv = argv;
 	if (!ft_init_data(digning))
