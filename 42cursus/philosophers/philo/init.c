@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:02:37 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:03:42 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:39:02 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,16 @@ void	ft_init_philo(t_argv *digning)
 	i = 0;
 	while (i < digning->numbers_of_philo)
 	{
-		digning->philo[i].id = i + 1;
+		digning->philo[i].id = i;
 		digning->philo[i].eat_cnt = 0;
 		digning->philo[i].digning = digning;
-		digning->philo[i].right_fork = &digning->fork[i];
+		digning->philo[i].left_fork = &digning->fork[i];
 		if (i == (digning->numbers_of_philo - 1))
-			digning->philo[i].left_fork = &digning->fork[0];
+			digning->philo[i].right_fork = &digning->fork[0];
 		else
-			digning->philo[i].left_fork = &digning->fork[i + 1];
-		digning->philo[i].last_meal = 0;
+			digning->philo[i].right_fork = &digning->fork[i + 1];
+		digning->total_eat_cnt = 0;
+		digning->philo[i].last_meal = get_timestamp();
 		i++;
 	}
 }
@@ -73,6 +74,8 @@ int	ft_init_data(t_argv *digning)
 		digning->must_eat_cnt = ft_atoi(digning->argv[5]);
 		if (digning->must_eat_cnt <= 0)
 			return (0);
+		if (digning->numbers_of_philo == 1)
+			digning->must_eat_cnt = -1;
 	}
 	else
 		digning->must_eat_cnt = -1;
