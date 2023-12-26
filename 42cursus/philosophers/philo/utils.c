@@ -6,46 +6,33 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:37:44 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/12 14:39:04 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 20:00:33 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	check_numeric(const char *str, int i)
-{
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	ft_atoi(const char *str)
 {
-	int		i;
+	long	n;
 	long	sign;
-	long	res;
 
-	i = 0;
+	n = 0;
 	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
-	if (!check_numeric(str, i))
+	while (*str >= '0' && *str <= '9')
+	{
+		n = n * 10 + *str - '0';
+		str++;
+	}
+	if ((sign * n) > 2147483647 || (sign * n) < -2147483648)
 		return (-1);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return ((int)(sign * res));
+	return (sign * n);
 }
