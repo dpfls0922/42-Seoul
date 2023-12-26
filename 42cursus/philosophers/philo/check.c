@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 20:02:11 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:31:35 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_total_eat(t_argv *digning)
 	return (0);
 }
 
-int	check_dead(t_argv *digning)
+int	check_finish(t_argv *digning)
 {
 	long long	current_time;
 	long long	last_meal_time;

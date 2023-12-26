@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/21 19:29:37 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:31:42 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void		print_status(t_argv *digning, int philo_id, char *status);
 void		*thread_routine(void *ptr);
 
 int			check_total_eat(t_argv *digning);
-int			check_dead(t_argv *digning);
+int			check_finish(t_argv *digning);
 
 int			ft_create_philo(t_argv *digning);
 int			ft_join_destroy(t_argv *digning);
