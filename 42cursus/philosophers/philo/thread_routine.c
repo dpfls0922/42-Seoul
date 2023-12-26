@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 16:52:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:55:23 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	grabbing_fork(t_philo *philosopher)
 {
-	if (philosopher->digning->numbers_of_philo == 1)
-	{
-		pthread_mutex_lock(philosopher->right_fork);
-		print_status(philosopher->digning, philosopher->id, "has taken a fork");
-		pthread_mutex_unlock(philosopher->right_fork);
-		return (1);
-	}
 	pthread_mutex_lock(philosopher->right_fork);
 	print_status(philosopher->digning, philosopher->id, "has taken a fork");
 	pthread_mutex_lock(philosopher->left_fork);
