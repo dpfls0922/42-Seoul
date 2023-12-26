@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 16:31:35 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 20:03:02 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,26 @@ int	check_total_eat(t_argv *digning)
 
 int	check_finish(t_argv *digning)
 {
-	long long	current_time;
-	long long	last_meal_time;
+	int			i;
+	long long	now;
 
-	while (digning->numbers_of_philo >= 1)
+	while (!digning->is_dead)
 	{
 		if (check_total_eat(digning))
 			return (1);
-		current_time = get_timestamp();
-		last_meal_time = digning->philo[0].last_meal;
-		if (current_time - last_meal_time >= digning->time_to_die)
+		i = 0;
+		while (i < digning->numbers_of_philo)
 		{
-			digning->is_dead = 1;
-			pthread_mutex_lock(&digning->status);
-			printf("%lld 1 died\n", current_time - digning->created_time);
-			pthread_mutex_unlock(&digning->status);
-			return (1);
+			now = get_timestamp();
+			if ((now - digning->philo[i].last_meal) >= digning->time_to_die)
+			{
+				digning->is_dead = 1;
+				pthread_mutex_lock(&digning->status);
+				printf("%lld %d died\n", now - digning->created_time, i + 1);
+				pthread_mutex_unlock(&digning->status);
+				return (1);
+			}
+			i++;
 		}
 	}
 	return (0);
