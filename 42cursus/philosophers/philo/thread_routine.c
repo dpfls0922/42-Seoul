@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 16:55:23 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:57:41 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	sleeping(t_argv *digning, long long time_to_sleep)
 	{
 		if (get_timestamp() - begin >= time_to_sleep)
 			break ;
-		usleep(100);
+		usleep(500);
 	}
 }
 
