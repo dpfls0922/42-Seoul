@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/27 15:40:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:54:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_finish(t_argv *digning)
 	while (!digning->is_dead)
 	{
 		if (check_total_eat(digning))
-			break ;
+			return (1) ;
 		i = 0;
 		while (i < digning->numbers_of_philo)
 		{
@@ -42,7 +42,7 @@ int	check_finish(t_argv *digning)
 				pthread_mutex_lock(&digning->status);
 				printf("%lld %d died\n", now - digning->created_time, i + 1);
 				pthread_mutex_unlock(&digning->status);
-				break ;
+				return (1);
 			}
 			i++;
 		}
