@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 22:15:40 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/27 15:09:18 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	eating(t_philo *philosopher)
 		philosopher->eat_cnt++;
 		pthread_mutex_unlock(&philosopher->digning->eat_cnt);
 		pthread_mutex_unlock(philosopher->right_fork);
-		if (philosopher->digning->must_eat_cnt == philosopher->eat_cnt)
-			philosopher->digning->total_eat_cnt++;
 	}
 	pthread_mutex_unlock(philosopher->left_fork);
 }
@@ -71,6 +69,8 @@ void	*thread_routine(void *ptr)
 		eating(philosopher);
 		if (digning->numbers_of_philo == 1)
 			sleeping(digning, digning->time_to_sleep);
+		if (philosopher->digning->must_eat_cnt == philosopher->eat_cnt)
+			philosopher->digning->total_eat_cnt++;
 		print_status(digning, philosopher->id, "is sleeping");
 		sleeping(digning, digning->time_to_sleep);
 		print_status(digning, philosopher->id, "is thinking");
