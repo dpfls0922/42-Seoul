@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/28 17:07:43 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 20:48:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	eating(t_philo *philosopher)
 		print_status(philosopher->digning, philosopher->id, "is eating");
 		philosopher->last_meal = get_timestamp();
 		sleeping(philosopher->digning, philosopher->digning->time_to_eat);
-		pthread_mutex_lock(&philosopher->digning->eat_cnt);
 		philosopher->eat_cnt++;
-		pthread_mutex_unlock(&philosopher->digning->eat_cnt);
 		pthread_mutex_unlock(philosopher->right_fork);
 	}
 	pthread_mutex_unlock(philosopher->left_fork);

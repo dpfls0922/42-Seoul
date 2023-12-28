@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 22:26:34 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 20:48:11 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_argv
 	long long		created_time;
 	t_philo			philo[200];
 	pthread_mutex_t	fork[200];
-	pthread_mutex_t	eat_cnt;
 	pthread_mutex_t	status;
 }	t_argv;
 
