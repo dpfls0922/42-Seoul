@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:02:37 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/27 15:31:56 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 17:36:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ int	ft_init_data(t_argv *digning)
 	digning->time_to_sleep = ft_atoi(digning->argv[4]);
 	if (digning->numbers_of_philo <= 0 || digning->time_to_die < 0
 		|| digning->time_to_eat < 0 || digning->time_to_sleep < 0)
+	{
+		free(digning);
 		return (0);
+	}
 	if (digning->argv[5])
 	{
 		digning->must_eat_cnt = ft_atoi(digning->argv[5]);
