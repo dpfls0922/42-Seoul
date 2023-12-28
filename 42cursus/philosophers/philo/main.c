@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 20:06:23 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 17:17:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	if (!ft_init_mutex(digning))
 		return (1);
 	ft_init_philo(digning);
-	if (!ft_create_philo(digning))
-		return (1);
+	ft_create_philo(digning);
 	return (0);
 }
