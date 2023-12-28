@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/27 16:47:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 15:43:52 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	*thread_routine(void *ptr)
 		usleep(digning->time_to_eat);
 	while (!(digning->is_dead))
 	{
-		if (digning->numbers_of_philo - 1 == philosopher->id && philosopher->eat_cnt == 0)
+		if (digning->numbers_of_philo - 1 == philosopher->id
+			&& philosopher->eat_cnt == 0)
 			usleep(1);
 		eating(philosopher);
 		if (digning->numbers_of_philo == 1)
