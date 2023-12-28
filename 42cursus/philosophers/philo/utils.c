@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:37:44 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/26 20:00:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/28 17:32:50 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	if ((sign * n) > 2147483647 || (sign * n) < -2147483648)
+		return (-1);
+	if ((*str < '0' || *str > '9') && *str != 0)
 		return (-1);
 	return (sign * n);
 }
