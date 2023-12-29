@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:16:07 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:16:07 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/30 01:08:47 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	mutex_destroy(t_argv *digning, t_philo *philo)
 	i = 0;
 	pthread_mutex_destroy(&digning->status);
 	pthread_mutex_destroy(&digning->m_is_dead);
+	pthread_mutex_destroy(&digning->m_total_eat_cnt);
 	while (i < digning->numbers_of_philo)
 	{
 		pthread_mutex_destroy(&philo[i].m_last_meal);
