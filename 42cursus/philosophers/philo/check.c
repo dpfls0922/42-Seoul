@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:31:45 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:43:00 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,10 @@ int	check_finish(t_argv *digning)
 		while (i < digning->numbers_of_philo)
 		{
 			now = get_timestamp();
-			pthread_mutex_lock(&digning->philo[i].m_last_meal);
-			last_meal = digning->philo[i].last_meal;
-			pthread_mutex_unlock(&digning->philo[i].m_last_meal);
+			last_meal = get_last_meal(&digning->philo[i]);
 			if ((now - last_meal) > digning->time_to_die)
 			{
-				pthread_mutex_lock(&digning->m_is_dead);
-				digning->is_dead = 1;
-				pthread_mutex_unlock(&digning->m_is_dead);
+				update_is_dead(digning);
 				pthread_mutex_lock(&digning->status);
 				printf("%lld %d died\n", now - digning->created_time, i + 1);
 				pthread_mutex_unlock(&digning->status);

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:37:44 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:01:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:43:47 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ long long	get_timestamp(void)
 	gettimeofday(&current_time, NULL);
 	result = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
 	return (result);
+}
+
+long long	get_last_meal(t_philo *philo)
+{
+	long long	last_meal;
+
+	pthread_mutex_lock(&philo->m_last_meal);
+	last_meal = philo->last_meal;
+	pthread_mutex_unlock(&philo->m_last_meal);
+	return (last_meal);
+}
+
+void	update_is_dead(t_argv *digning)
+{
+	pthread_mutex_lock(&digning->m_is_dead);
+	digning->is_dead = 1;
+	pthread_mutex_unlock(&digning->m_is_dead);
 }
 
 void	print_status(t_argv *digning, int philo_id, char *status)

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:33:07 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:44:08 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int			wait_and_cleanup_philo(t_argv *digning);
 
 int			ft_atoi(const char *str);
 long long	get_timestamp(void);
+long long	get_last_meal(t_philo *philo);
+void		update_is_dead(t_argv *digning);
 void		print_status(t_argv *digning, int philo_id, char *status);
 
 #endif
