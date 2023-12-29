@@ -6,11 +6,22 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 17:56:08 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:56:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+int	check_philo_dead(t_argv *digning)
+{
+	int	die;
+
+	die = 0;
+	pthread_mutex_lock(&digning->m_is_dead);
+	die = digning->is_dead;
+	pthread_mutex_unlock(&digning->m_is_dead);
+	return (die);
+}
 
 int	check_total_eat(t_argv *digning)
 {
