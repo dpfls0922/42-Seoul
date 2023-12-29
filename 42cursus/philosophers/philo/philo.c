@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:16:41 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:32:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/30 01:00:09 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	eating(t_philo *philosopher)
 		pthread_mutex_unlock(&philosopher->m_last_meal);
 		sleeping(philosopher->digning, philosopher->digning->time_to_eat);
 		philosopher->eat_cnt++;
+		pthread_mutex_lock(&philosopher->digning->m_total_eat_cnt);
+		philosopher->digning->total_eat_cnt++;
+		pthread_mutex_unlock(&philosopher->digning->m_total_eat_cnt);
 		pthread_mutex_unlock(philosopher->right_fork);
 	}
 	pthread_mutex_unlock(philosopher->left_fork);
@@ -50,7 +53,6 @@ void	sleeping(t_argv *digning, long long time_to_sleep)
 
 void	*thread_routine(void *ptr)
 {
-	int		die;
 	t_argv	*digning;
 	t_philo	*philosopher;
 
@@ -60,14 +62,13 @@ void	*thread_routine(void *ptr)
 		sleeping(digning, digning->time_to_eat);
 	while (1)
 	{
-		die = check_philo_dead(digning);
-		if (die)
+		if (check_philo_dead(digning) || check_philo_eat_all(philosopher))
 			break ;
 		if (digning->numbers_of_philo - 1 == philosopher->id
 			&& philosopher->eat_cnt == 0)
 			usleep(1);
 		eating(philosopher);
-		if (check_philo_eat_all(philosopher))
+		if (philosopher->digning->numbers_of_philo == 1)
 			break ;
 		print_status(digning, philosopher->id, "is sleeping");
 		sleeping(digning, digning->time_to_sleep);

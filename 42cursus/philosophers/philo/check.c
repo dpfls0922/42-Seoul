@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 21:43:00 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/30 01:00:31 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,9 @@
 
 int	check_philo_eat_all(t_philo *philosopher)
 {
-	int	eat_all;
-
-	eat_all = 0;
 	if (philosopher->digning->must_eat_cnt == philosopher->eat_cnt)
-	{
-		pthread_mutex_lock(&philosopher->digning->m_total_eat_cnt);
-		philosopher->digning->total_eat_cnt++;
-		pthread_mutex_unlock(&philosopher->digning->m_total_eat_cnt);
-		eat_all = 1;
-	}
-	return (eat_all);
+		return (1);
+	return (0);
 }
 
 int	check_philo_dead(t_argv *digning)
@@ -40,18 +32,14 @@ int	check_philo_dead(t_argv *digning)
 
 int	check_total_eat(t_argv *digning)
 {
-	int	total;
+	int	total_eat_cnt;
 
 	pthread_mutex_lock(&digning->m_total_eat_cnt);
-	total = digning->total_eat_cnt;
+	total_eat_cnt = digning->total_eat_cnt;
 	pthread_mutex_unlock(&digning->m_total_eat_cnt);
-	if ((digning->must_eat_cnt != 0) && (digning->numbers_of_philo == total))
-	{
-		pthread_mutex_lock(&digning->m_is_dead);
-		digning->is_dead = 1;
-		pthread_mutex_unlock(&digning->m_is_dead);
+	if (digning->argc == 6
+		&& total_eat_cnt >= digning->numbers_of_philo * digning->must_eat_cnt)
 		return (1);
-	}
 	return (0);
 }
 

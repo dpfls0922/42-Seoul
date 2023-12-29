@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:02:37 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 21:52:29 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/30 00:48:54 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int	ft_init_data(t_argv *digning)
 		if (digning->must_eat_cnt <= 0)
 			return (0);
 		if (digning->numbers_of_philo == 1)
-			digning->must_eat_cnt = 0;
+			digning->must_eat_cnt = -1;
 	}
 	else
-		digning->must_eat_cnt = 0;
+		digning->must_eat_cnt = -1;
 	digning->is_dead = 0;
 	digning->total_eat_cnt = 0;
 	return (1);
