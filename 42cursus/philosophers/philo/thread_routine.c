@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:09:21 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 17:55:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:59:58 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,6 @@ void	sleeping(t_argv *digning, long long time_to_sleep)
 			break ;
 		usleep(200);
 	}
-}
-
-void	print_status(t_argv *digning, int philo_id, char *status)
-{
-	int	die;
-
-	die = check_philo_dead(digning);
-	pthread_mutex_lock(&digning->status);
-	if (!die)
-	{
-		printf("%lld ", get_timestamp() - digning->created_time);
-		printf("%d %s\n", philo_id + 1, status);
-	}
-	pthread_mutex_unlock(&digning->status);
 }
 
 void	*thread_routine(void *ptr)
