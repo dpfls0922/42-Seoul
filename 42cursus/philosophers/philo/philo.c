@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 18:16:41 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:17:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:32:30 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,8 @@ void	*thread_routine(void *ptr)
 			&& philosopher->eat_cnt == 0)
 			usleep(1);
 		eating(philosopher);
-		if (philosopher->digning->must_eat_cnt == philosopher->eat_cnt)
-		{
-			pthread_mutex_lock(&digning->m_total_eat_cnt);
-			philosopher->digning->total_eat_cnt++;
-			pthread_mutex_unlock(&digning->m_total_eat_cnt);
+		if (check_philo_eat_all(philosopher))
 			break ;
-		}
 		print_status(digning, philosopher->id, "is sleeping");
 		sleeping(digning, digning->time_to_sleep);
 		print_status(digning, philosopher->id, "is thinking");

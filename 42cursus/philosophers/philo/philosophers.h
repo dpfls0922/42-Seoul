@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:19:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:33:07 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void		eating(t_philo *philosopher);
 void		sleeping(t_argv *digning, long long time_to_sleep);
 void		*thread_routine(void *ptr);
 
+int			check_philo_eat_all(t_philo *philosopher);
 int			check_philo_dead(t_argv *digning);
 int			check_total_eat(t_argv *digning);
 int			check_finish(t_argv *digning);
