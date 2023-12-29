@@ -6,7 +6,7 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 16:05:13 by yerilee           #+#    #+#              #
-#    Updated: 2023/12/29 18:16:49 by yerilee          ###   ########.fr        #
+#    Updated: 2023/12/29 18:18:13 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = check.c clear.c philo.c init.c \
-		main.c thread_routine.c utils.c
+SRCS = check.c clear.c philo.c init.c main.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 
