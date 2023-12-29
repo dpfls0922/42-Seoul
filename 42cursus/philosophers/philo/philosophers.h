@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 20:57:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 18:07:38 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:19:33 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,13 @@ typedef struct s_argv
 	pthread_mutex_t	status;
 }	t_argv;
 
-int			ft_atoi(const char *str);
-
-long long	get_timestamp(void);
-
 int			ft_init_mutex(t_argv *digning);
 void		ft_init_philo(t_argv *digning);
 int			ft_init_data(t_argv *digning);
 
 int			ft_create_philo(t_argv *digning);
-
 void		eating(t_philo *philosopher);
 void		sleeping(t_argv *digning, long long time_to_sleep);
-void		print_status(t_argv *digning, int philo_id, char *status);
 void		*thread_routine(void *ptr);
 
 int			check_philo_dead(t_argv *digning);
@@ -71,5 +65,9 @@ int			check_finish(t_argv *digning);
 
 void		mutex_destroy(t_argv *digning, t_philo *philo);
 int			wait_and_cleanup_philo(t_argv *digning);
+
+int			ft_atoi(const char *str);
+long long	get_timestamp(void);
+void		print_status(t_argv *digning, int philo_id, char *status);
 
 #endif
