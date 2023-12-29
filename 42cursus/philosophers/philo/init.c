@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:02:37 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 17:44:31 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:52:29 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,7 @@ int	ft_init_data(t_argv *digning)
 	}
 	else
 		digning->must_eat_cnt = 0;
-	pthread_mutex_lock(&digning->m_is_dead);
 	digning->is_dead = 0;
-	pthread_mutex_unlock(&digning->m_is_dead);
-	pthread_mutex_lock(&digning->m_total_eat_cnt);
 	digning->total_eat_cnt = 0;
-	pthread_mutex_unlock(&digning->m_total_eat_cnt);
 	return (1);
 }
