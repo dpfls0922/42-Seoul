@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:02:37 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/28 20:48:50 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:44:31 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ int	ft_init_mutex(t_argv *digning)
 	i = 0;
 	while (i < digning->numbers_of_philo)
 	{
-		if (pthread_mutex_init(&digning->fork[i], NULL) != 0)
+		if (pthread_mutex_init(&digning->fork[i], NULL) != 0
+			|| pthread_mutex_init(&digning->philo[i].m_last_meal, NULL) != 0)
 		{
 			free(digning);
 			return (0);
 		}
 		i++;
 	}
-	if (pthread_mutex_init(&digning->status, NULL) != 0)
+	if (pthread_mutex_init(&digning->status, NULL) != 0
+		|| pthread_mutex_init(&digning->m_is_dead, NULL) != 0
+		|| pthread_mutex_init(&digning->m_total_eat_cnt, NULL) != 0)
 	{
 		free(digning);
 		return (0);
@@ -49,8 +52,9 @@ void	ft_init_philo(t_argv *digning)
 			digning->philo[i].right_fork = &digning->fork[0];
 		else
 			digning->philo[i].right_fork = &digning->fork[i + 1];
-		digning->total_eat_cnt = 0;
+		pthread_mutex_lock(&digning->philo[i].m_last_meal);
 		digning->philo[i].last_meal = get_timestamp();
+		pthread_mutex_unlock(&digning->philo[i].m_last_meal);
 		i++;
 	}
 }
@@ -74,6 +78,11 @@ int	ft_init_data(t_argv *digning)
 	}
 	else
 		digning->must_eat_cnt = 0;
+	pthread_mutex_lock(&digning->m_is_dead);
 	digning->is_dead = 0;
+	pthread_mutex_unlock(&digning->m_is_dead);
+	pthread_mutex_lock(&digning->m_total_eat_cnt);
+	digning->total_eat_cnt = 0;
+	pthread_mutex_unlock(&digning->m_total_eat_cnt);
 	return (1);
 }
