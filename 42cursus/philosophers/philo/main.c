@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:33:33 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/28 17:47:23 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:40:35 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int	main(int argc, char **argv)
 	}
 	ft_init_philo(digning);
 	ft_create_philo(digning);
+	mutex_destroy(digning, digning->philo);
 	return (0);
 }

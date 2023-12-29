@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:17:43 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/28 20:50:21 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 17:50:06 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,21 @@ void	mutex_destroy(t_argv *digning, t_philo *philo)
 
 	i = 0;
 	pthread_mutex_destroy(&digning->status);
+	pthread_mutex_destroy(&digning->m_is_dead);
 	while (i < digning->numbers_of_philo)
 	{
-		pthread_detach(philo[i].thread_id);
+		pthread_mutex_destroy(&philo[i].m_last_meal);
 		pthread_mutex_destroy(philo[i].right_fork);
 		pthread_mutex_destroy(philo[i].left_fork);
 		i++;
 	}
+	free(digning);
 }
 
 int	ft_join_destroy(t_argv *digning)
 {
 	int	i;
 
-	if (check_finish(digning))
-	{
-		mutex_destroy(digning, digning->philo);
-		free(digning);
-		return (0);
-	}
 	i = 0;
 	while (i < digning->numbers_of_philo)
 	{
