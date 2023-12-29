@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:17:43 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/29 17:50:06 by yerilee          ###   ########.fr       */
+/*   Updated: 2023/12/29 18:11:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	mutex_destroy(t_argv *digning, t_philo *philo)
 	free(digning);
 }
 
-int	ft_join_destroy(t_argv *digning)
+int	wait_and_cleanup_philo(t_argv *digning)
 {
 	int	i;
 
