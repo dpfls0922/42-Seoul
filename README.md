@@ -16,6 +16,6 @@
 |9|philosophers|[식사하는 철학자 교착상태 해결하기](42cursus/philosophers/README.md)|
 |10|Netpractice|네트워크 공부|
 |11|cub3d|레이캐스팅 알고리즘으로 3D게임 구현하기|
-|12|CPP_Module|CPP 모듈 구현하]|
+|12|CPP_Module|CPP 모듈 구현하기|
  
 (업데이트 예정)
