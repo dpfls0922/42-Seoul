@@ -6,13 +6,15 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 21:16:00 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:16:40 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(){this->i = -1;}
+
+PhoneBook::~PhoneBook(){}
 
 std::string PhoneBook::ShowPrompt(void)
 {
