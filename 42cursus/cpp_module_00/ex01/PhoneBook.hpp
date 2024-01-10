@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:27 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 20:39:01 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 20:49:12 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include  <iomanip>
 
 class	PhoneBook{
 	private:
