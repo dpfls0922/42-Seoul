@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:32 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 20:38:57 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:37:15 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ int main(void)
 			exit_status = phoneBook.AddInfo();
 		else if (line == "search" || line == "SEARCH")
 		{
-			if (phoneBook.GetSize() == 0)
-			{
-				std::cout << "Nothing Added. Add First\n";
-				continue;
-			}
-			phoneBook.ShowInfo();
+			phoneBook.ShowAllInfo();
 			phoneBook.ShowDetail();
 		}
 		if (exit_status == 1)

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 21:32:46 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:37:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int    PhoneBook::AddInfo(void)
 
 int    PhoneBook::GetSize(void){return this->i;};
 
-void    PhoneBook::ShowInfo(void)
+void    PhoneBook::ShowAllInfo(void)
 {
 	std::string	firstName;
 	std::string	lastName;
