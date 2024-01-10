@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 21:16:40 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:17:27 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ std::string PhoneBook::ShowPrompt(void)
 
 std::string PhoneBook::ReadLine(std::string str)
 {
-     std::string input;
+    std::string input;
 
-     while(input.empty())
-     {
+    while(input.empty())
+    {
         std::cout << str;
         std::getline(std::cin, input);
         if (std::cin.eof())
             return "";
-     }
+    }
     return input;
 }
 
