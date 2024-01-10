@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:07 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 19:37:08 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 19:54:35 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ class	Contact{
 		std::string  darkestSecret;
 
 	public:
-		void setInfo(
+		void SetInfo(
 			std::string firstName,
 			std::string lastName,
 			std::string nickName,
 			std::string phoneNumber,
 			std::string DdarkestSecret
 		);
-		std::string getFirstName();
-		std::string getLastName();
-		std::string getNickName();
-		std::string getPhoneNumber();
-		std::string getDarkestSecret();
+		std::string GetFirstName();
+		std::string GetLastName();
+		std::string GetNickName();
+		std::string GetPhoneNumber();
+		std::string GetDarkestSecret();
 };
 
 #endif
