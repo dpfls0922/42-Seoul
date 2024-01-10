@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 21:31:06 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:32:46 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,30 @@ int    PhoneBook::GetSize(void){return this->i;};
 
 void    PhoneBook::ShowInfo(void)
 {
-    
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickName;
+
+	for (int i = 0; i <= this->i && i < 8; i++)
+	{
+		std::cout << "|-------------------------------------------|\n";
+		firstName = contact[i].GetFirstName();
+		lastName = contact[i].GetLastName();
+		nickName = contact[i].GetNickName();
+		if (firstName.length() > 10)
+			firstName.replace(9, firstName.length() - 9, ".");
+		if (lastName.length() > 10)
+			lastName.replace(9, lastName.length() - 9, ".");
+		if (nickName.length() > 10)
+			nickName.replace(9, nickName.length() - 9, ".");
+		std::cout << "|";
+		std::cout << std::setw(10) << i + 1 << "|";
+		std::cout << std::setw(10) << firstName << "|";
+		std::cout << std::setw(10) << lastName << "|";
+		std::cout << std::setw(10) << nickName << "|";
+		std::cout << "\n";
+		std::cout << "|-------------------------------------------|\n";
+	}
 }
 
 void    PhoneBook::ShowDetail(void)
