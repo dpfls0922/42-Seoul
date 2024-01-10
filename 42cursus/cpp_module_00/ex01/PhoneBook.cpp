@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 20:40:04 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/10 21:16:00 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ std::string PhoneBook::ShowPrompt(void)
     return this->line;
 }
 
-std::string PhoneBook::readLine(std::string str)
+std::string PhoneBook::ReadLine(std::string str)
 {
      std::string input;
 
@@ -53,15 +53,15 @@ int    PhoneBook::AddInfo(void)
     if (this->i == 7) this->i = 0;
 	else this->i++;
     std::cout << "|--------------------------------|\n";
-    firstName = readLine("Enter First Name : ");
+    firstName = ReadLine("Enter First Name : ");
     std::cout << "|--------------------------------|\n";
-    lastName = readLine("Enter Last Name : ");
+    lastName = ReadLine("Enter Last Name : ");
     std::cout << "|--------------------------------|\n";
-    nickname = readLine("Enter Nick Name : ");
+    nickname = ReadLine("Enter Nick Name : ");
     std::cout << "|--------------------------------|\n";
-    phoneNumber = readLine("Enter Phone Number : ");
+    phoneNumber = ReadLine("Enter Phone Number : ");
     std::cout << "|--------------------------------|\n";
-    darkestSecret = readLine("Enter Darkest Secret : ");
+    darkestSecret = ReadLine("Enter Darkest Secret : ");
     contact[this->i].SetInfo(firstName, lastName, nickname, phoneNumber, darkestSecret);
     std::cout << "|--------------------------------|\n";
     if (firstName.empty() || lastName.empty() || nickname.empty() || phoneNumber.empty() || darkestSecret.empty())
