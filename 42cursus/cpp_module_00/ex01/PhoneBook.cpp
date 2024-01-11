@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/11 17:34:46 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:56:58 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ PhoneBook::~PhoneBook(){}
 
 std::string PhoneBook::ShowPrompt(void)
 {
-    std::cout << "|-------------------------------------------|\n";
+    std::cout << "+-------------------------------------------+\n";
     std::cout << "|       Actions : (ADD, SEARCH, EXIT)       |\n";
-    std::cout << "|-------------------------------------------|\n";
+    std::cout << "+-------------------------------------------+\n";
     std::cout << "| Please enter your action : ";
     std::getline(std::cin, this->line);
     if (std::cin.eof())
@@ -53,16 +53,11 @@ int    PhoneBook::AddInfo(void)
 
     if (this->i == 7) this->i = 0;
 	else this->i++;
-    std::cout << "|-------------------------------------------|\n";
-    firstName = ReadLine("Enter First Name : ");
-    std::cout << "|-------------------------------------------|\n";
-    lastName = ReadLine("Enter Last Name : ");
-    std::cout << "|-------------------------------------------|\n";
-    nickname = ReadLine("Enter Nick Name : ");
-    std::cout << "|-------------------------------------------|\n";
-    phoneNumber = ReadLine("Enter Phone Number : ");
-    std::cout << "|-------------------------------------------|\n";
-    darkestSecret = ReadLine("Enter Darkest Secret : ");
+    firstName = ReadLine("| Enter First Name : ");
+    lastName = ReadLine("| Enter Last Name : ");
+    nickname = ReadLine("| Enter Nick Name : ");
+    phoneNumber = ReadLine("| Enter Phone Number : ");
+    darkestSecret = ReadLine("| Enter Darkest Secret : ");
     contact[this->i].SetInfo(firstName, lastName, nickname, phoneNumber, darkestSecret);
     std::cout << "\n\n";
     if (firstName.empty() || lastName.empty() || nickname.empty() || phoneNumber.empty() || darkestSecret.empty())
@@ -78,9 +73,9 @@ void    PhoneBook::ShowAllInfo(void)
 	std::string	lastName;
 	std::string	nickName;
 
+	std::cout << "+-------------------------------------------+\n";
 	for (int i = 0; i <= this->i && i < 8; i++)
 	{
-		std::cout << "|-------------------------------------------|\n";
 		firstName = contact[i].GetFirstName();
 		lastName = contact[i].GetLastName();
 		nickName = contact[i].GetNickName();
@@ -96,7 +91,7 @@ void    PhoneBook::ShowAllInfo(void)
 		std::cout << std::setw(10) << lastName << "|";
 		std::cout << std::setw(10) << nickName << "|";
 		std::cout << "\n";
-		std::cout << "|-------------------------------------------|\n";
+		std::cout << "+-------------------------------------------+\n";
 	}
 }
 
@@ -105,13 +100,18 @@ int    PhoneBook::GetContactIndex(void)
 	std::string str;
 	int			n;
 
-	std::cout << "|-------------------------------------------|\n";
 	std::cout << "| Enter the Contact index : ";
 	std::getline(std::cin, str);
 	if (str.empty() || std::cin.eof())
 		return (-1);
-	for (int i = 0; str[i]; i++)
-		if (!std::isdigit(str[i])) return (-1);
+	for (unsigned int i = 0; str[i]; i++)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			std::cout << "| Error: Not Numeric Type\n";
+			return (-1);
+		}
+	}
 	n = std::stoi(str);
 	if (!(n >= 1 && n <= 8 && n <= this->i + 1))
 	{
@@ -128,18 +128,19 @@ int    PhoneBook::ShowDetail(void)
     id = GetContactIndex() - 1;
     if (id >= 0 && id <= 7)
     {
-		std::cout << "|-------------------------------------------|\n";
-		std::cout << "  First Name		:	";
+		std::cout << "+--------------------------------------------\n";
+		std::cout << "| First Name	: ";
 		std::cout << contact[id].GetFirstName() << "\n";
-		std::cout << "  Last Name		:	";
+		std::cout << "| Last Name	: ";
 		std::cout << contact[id].GetLastName() << "\n";
-		std::cout << "  NickName		:	";
+		std::cout << "| NickName	: ";
 		std::cout << contact[id].GetNickName() << "\n";
-		std::cout << "  PhoneNumber		:	";
+		std::cout << "| PhoneNumber	: ";
 		std::cout << contact[id].GetPhoneNumber() << "\n";
-		std::cout << "  A Secret		:	";
+		std::cout << "| A Secret	: ";
 		std::cout << contact[id].GetDarkestSecret() << "\n";
-		std::cout << "|-------------------------------------------|\n";
+		std::cout << "+--------------------------------------------\n";
 	}
+	std::cout << "\n";
 	return (0);
 }
