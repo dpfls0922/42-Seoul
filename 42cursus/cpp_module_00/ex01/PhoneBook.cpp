@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/11 17:24:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:34:46 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int    PhoneBook::AddInfo(void)
 	std::string	nickname;
 	std::string	phoneNumber;
 	std::string	darkestSecret;
-
 
     if (this->i == 7) this->i = 0;
 	else this->i++;
@@ -101,7 +100,46 @@ void    PhoneBook::ShowAllInfo(void)
 	}
 }
 
+int    PhoneBook::GetContactIndex(void)
+{
+	std::string str;
+	int			n;
+
+	std::cout << "|-------------------------------------------|\n";
+	std::cout << "| Enter the Contact index : ";
+	std::getline(std::cin, str);
+	if (str.empty() || std::cin.eof())
+		return (-1);
+	for (int i = 0; str[i]; i++)
+		if (!std::isdigit(str[i])) return (-1);
+	n = std::stoi(str);
+	if (!(n >= 1 && n <= 8 && n <= this->i + 1))
+	{
+		std::cout << "| Error: Input Out Of Range\n";
+		return (-1);
+	}
+	return (n);
+}
+
 int    PhoneBook::ShowDetail(void)
 {
-    
+    int id;
+
+    id = GetContactIndex() - 1;
+    if (id >= 0 && id <= 7)
+    {
+		std::cout << "|-------------------------------------------|\n";
+		std::cout << "  First Name		:	";
+		std::cout << contact[id].GetFirstName() << "\n";
+		std::cout << "  Last Name		:	";
+		std::cout << contact[id].GetLastName() << "\n";
+		std::cout << "  NickName		:	";
+		std::cout << contact[id].GetNickName() << "\n";
+		std::cout << "  PhoneNumber		:	";
+		std::cout << contact[id].GetPhoneNumber() << "\n";
+		std::cout << "  A Secret		:	";
+		std::cout << contact[id].GetDarkestSecret() << "\n";
+		std::cout << "|-------------------------------------------|\n";
+	}
+	return (0);
 }

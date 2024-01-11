@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:27 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/11 17:25:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:25:42 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	PhoneBook{
 		std::string ReadLine(std::string str);
 		int			AddInfo();
 		int			GetSize();
+		int			GetContactIndex();
 		void		ShowAllInfo();
 		int			ShowDetail();
 };
