@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:27 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/10 21:36:27 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:25:03 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	PhoneBook{
 		int			AddInfo();
 		int			GetSize();
 		void		ShowAllInfo();
-		void		ShowDetail();
+		int			ShowDetail();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/11 17:23:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/11 17:24:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void    PhoneBook::ShowAllInfo(void)
 	}
 }
 
-void    PhoneBook::ShowDetail(void)
+int    PhoneBook::ShowDetail(void)
 {
     
 }
