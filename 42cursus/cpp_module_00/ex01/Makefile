@@ -6,23 +6,23 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 17:19:16 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/09 17:53:58 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/12 16:46:47 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	PhoneBook
-CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	Contact.cpp main.cpp PhoneBook.cpp
-OBJS	=	$(SRS:.cpp=.o)
+NAME		=	PhoneBook
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+SRCS		=	Contact.cpp main.cpp PhoneBook.cpp
+OBJS		=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
