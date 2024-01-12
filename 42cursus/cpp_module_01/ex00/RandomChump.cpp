@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:04:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/12 19:09:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/12 21:29:04 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void randomChump(std::string name)
 {
-    Zombie  zombie = Zombie(name);
+    Zombie  zombie(name);
     zombie.announce();
 }
