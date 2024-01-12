@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/11 17:56:58 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/12 16:40:41 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void    PhoneBook::ShowAllInfo(void)
 int    PhoneBook::GetContactIndex(void)
 {
 	std::string str;
+	const char	*ptr;
 	int			n;
 
 	std::cout << "| Enter the Contact index : ";
@@ -106,13 +107,19 @@ int    PhoneBook::GetContactIndex(void)
 		return (-1);
 	for (unsigned int i = 0; str[i]; i++)
 	{
+		if (i > 0)
+		{
+			std::cout << "| Error: Input Out Of Range\n";
+			return (-1);
+		}
 		if (!std::isdigit(str[i]))
 		{
 			std::cout << "| Error: Not Numeric Type\n";
 			return (-1);
 		}
 	}
-	n = std::stoi(str);
+	ptr = str.c_str();
+	n = atoi(ptr);
 	if (!(n >= 1 && n <= 8 && n <= this->i + 1))
 	{
 		std::cout << "| Error: Input Out Of Range\n";
