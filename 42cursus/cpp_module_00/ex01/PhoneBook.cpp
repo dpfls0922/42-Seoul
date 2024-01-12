@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:37:23 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/12 16:40:41 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/12 17:07:14 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int    PhoneBook::AddInfo(void)
     darkestSecret = ReadLine("| Enter Darkest Secret : ");
     contact[this->i].SetInfo(firstName, lastName, nickname, phoneNumber, darkestSecret);
     std::cout << "\n\n";
-    if (firstName.empty() || lastName.empty() || nickname.empty() || phoneNumber.empty() || darkestSecret.empty())
-        return (1);
     return (0);
 }
 
