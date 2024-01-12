@@ -6,23 +6,23 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 17:11:27 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/12 17:21:32 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/12 19:44:11 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	BraiiiiiiinnnzzzZ
-CC		=	c++
-FLAGS	=	-Wall -Wextra -std=c++98
-SRCS	=	Zomie.cpp main.cpp
-OBJS	=	$(SRCS:.cpp=.o)
+NAME		=	BraiiiiiiinnnzzzZ
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -std=c++98
+SRCS		=	main.cpp NewZombie.cpp RandomChump.cpp Zombie.cpp
+OBJS		=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
