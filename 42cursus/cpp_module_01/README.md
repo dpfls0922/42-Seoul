@@ -86,21 +86,20 @@ Foo : BraiiiiiiinnnzzzZ...
 
 다음을 포함하는 프로그램을 작성하세요:
 
-- *A string variable initialized to `"HI THIS IS BRAIN"`.*`"HI THIS IS BRAIN"`으로 초기화된 문자열 변수
-- *`stringPTR:` A pointer to the string.*문자열을 가리키는 포인터
-- *`stringREF:` A reference to the string.*문자열을 참조하는 참조자
+- `"HI THIS IS BRAIN"`으로 초기화된 문자열 변수
+- `stringPTR`: 문자열을 가리키는 포인터
+- `stringREF`: 문자열을 참조하는 참조자
 
+  
 프로그램은 다음을 출력해야 합니다:
+- 문자열 변수의 메모리 주소
+- `stringPTR`이 가리키는 메모리 주소
+- `stringREF`가 가리키는 메모리 주소
 
-- *The memory address of the string variable.*문자열 변수의 메모리 주소
-- *The memory address held by `stringPTR*stringPTR`이 가리키는 메모리 주소
-- *The memory address held by `stringREF*stringREF`가 가리키는 메모리 주소
-
-그리고
-
-- *The value of the string variable*문자열 변수의 값
-- *The value pointed to by `stringPTR*stringPTR`이 가리키는 값
-- *The value pointed to by `stringREF*stringREF`가 가리키는 값
+그리고:
+- 문자열 변수의 값
+- `stringPTR`이 가리키는 값
+- `stringREF`가 가리키는 값
 
 이게 끝이에요. 별 거 없어요. 이 과제의 최종 목표는 완전히 새로운 것 처럼 보이는 '참조' 개념에 대해 이해하는 것입니다. 아주 작고 사소하고 미세한 차이점이 있을지라도요. 이미 알고 있는 개념을 다르게 표현하는 것 뿐이죠 : 주소 조작 말이에요.
 
@@ -115,21 +114,20 @@ Foo : BraiiiiiiinnnzzzZ...
 
 다음을 포함하는 Weapon 클래스를 구현하세요:
 
-- *A privat attribute `type`, which is a string.*문자열인 private 속성 `type`
-- *A `getType()` member function that returns a const reference to `type`.*`type`의 상수 참조를 반환하는 `getType()` 멤버 함수
-- *A `setType()` member function that sets `type` usingn the new one passed as parameter.*매개변수로 전달된 새로운 `type`을 사용하여 `type`을 설정하는 `setType()` 멤버 함수
+- 문자열인 private 속성 `type`
+- `type`의 상수 참조를 반환하는 `getType()` 멤버 함수
+- 매개변수로 전달된 새로운 `type`을 사용하여 `type`을 설정하는 `setType()` 멤버 함수
 
 이제, 두 개의 클래스를 만드세요:`HumanA`와 `HumanB`. 두 클래스 모두 `Weapon`과 `name`을 지니고 있어야 합니다. 또한, 다음과 같은 문자열을 출력하는 `attack()` 멤버 함수를 포함해야 합니다:
 
 ```
 <name> attacks with their <weapon type>
-
 ```
 
 `HumanA`와 `HumanB`는 거의 비슷하지만, 두 가지 미세한 차이점이 있습니다:
 
-- *While HumanA takes the Weapon on its constructor, HumanB doesn't.*`HumanA`는 생성자에서 `Weapon`을 지니지만, `HumanB`는 그렇지 않습니다.
-- *HumanB may `not always` have a Weapon, whereas HumanA will `always` be armed.*HumanB는 `항상` 무장한 상태가 `아닐 수도` 있지만, HumanA는 `*항상**` 무장한 상태입니다.
+- `HumanA`는 생성자에서 `Weapon`을 지니지만, `HumanB`는 그렇지 않습니다.
+- `HumanB`는 항상 무장한 상태가 아닐 수도 있지만, `HumanA`는 **항상** 무장한 상태입니다.
 
 여러분의 구현이 올바르다면, 다음 코드를 실행하면 두 가지 테스트 케이스 모두 "crude spiked club"과 "some other type of club"으로 공격할 수 있습니다.
 
