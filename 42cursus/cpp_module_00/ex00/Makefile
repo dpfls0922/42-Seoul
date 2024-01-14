@@ -6,13 +6,13 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 20:54:00 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/12 19:42:22 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/14 11:16:13 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	megaphone
 CXX			=	c++
-CXXFLAGS	=	-Wall -Wextra -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	megaphone.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
