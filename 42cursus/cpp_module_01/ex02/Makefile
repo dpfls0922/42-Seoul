@@ -6,14 +6,14 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 22:32:03 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/12 22:32:05 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/14 11:16:38 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	HordOfZombies
+NAME		=	Brain
 CXX			=	c++
-CXXFLAGS	=	-Wall -Wextra -std=c++98
-SRCS		=	main.cpp Zombie.cpp ZombieHorde.cpp
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+SRCS		=	main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
