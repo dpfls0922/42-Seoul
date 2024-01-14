@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:49:50 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/14 21:56:46 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/14 22:04:02 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ class Fixed
         float   toFloat( void ) const;
         int     toInt( void ) const;
 };
-std::ostream &operator<<(std::ostream &out, const Fixed &obj);
+std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 #endif
