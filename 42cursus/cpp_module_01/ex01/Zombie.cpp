@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:36:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/12 22:15:09 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/14 11:05:24 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ void Zombie::announce()
 
 void Zombie::setName(std::string name)
 {
-    if (name == "")
-        return;
     this->name = name;
 }
