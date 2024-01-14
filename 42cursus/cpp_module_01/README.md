@@ -29,14 +29,12 @@ Zombie 클래스에 `void announce( void )` 멤버 함수를 추가하세요. 
 
 ```
 <name> BraiiiiiiinnnzzzZ...
-
 ```
 
 꺽쇠 괄호 (<와 >)는 출력하지 마세요. 이름이 Foo인 좀비의 메시지는 다음과 같아야 합니다:
 
 ```
 Foo : BraiiiiiiinnnzzzZ...
-
 ```
 
 그 다음, 다음 두 함수를 구현하세요:
@@ -118,7 +116,11 @@ Foo : BraiiiiiiinnnzzzZ...
 - `type`의 상수 참조를 반환하는 `getType()` 멤버 함수
 - 매개변수로 전달된 새로운 `type`을 사용하여 `type`을 설정하는 `setType()` 멤버 함수
 
-이제, 두 개의 클래스를 만드세요:`HumanA`와 `HumanB`. 두 클래스 모두 `Weapon`과 `name`을 지니고 있어야 합니다. 또한, 다음과 같은 문자열을 출력하는 `attack()` 멤버 함수를 포함해야 합니다:
+이제, 두 개의 클래스를 만드세요
+
+`HumanA`와 `HumanB`.
+
+두 클래스 모두 `Weapon`과 `name`을 지니고 있어야 합니다. 또한, 다음과 같은 문자열을 출력하는 `attack()` 멤버 함수를 포함해야 합니다:
 
 ```
 <name> attacks with their <weapon type>
@@ -242,7 +244,7 @@ I’ve been coming here for years whereas you started working here since last mo
 [ ERROR ]
 This is unacceptable, I want to speak to the manager now.
 
-$> ./karenFilter "I am not sure how tired I am today..."
+$> ./harlFilter "I am not sure how tired I am today..."
 [ Probably complaining about insignificant problems ]
 ```
 
