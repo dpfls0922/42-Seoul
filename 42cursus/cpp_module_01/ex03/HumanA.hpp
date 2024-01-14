@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:06:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/14 13:28:28 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/14 14:15:34 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanA{
     public:
         HumanA(std::string name, Weapon &weapon);
         ~HumanA();
-        void attack();
+        void attack() const;
 };
 
 #endif

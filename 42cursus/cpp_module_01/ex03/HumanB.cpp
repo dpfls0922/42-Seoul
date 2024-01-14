@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 13:39:32 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/14 13:55:23 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/14 14:15:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ HumanB::~HumanB()
 {
 }
 
-void HumanB::attack()
+void HumanB::attack() const
 {
     if (weapon)
     {

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 12:07:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/14 13:42:19 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/14 14:15:43 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanB{
     public:
         HumanB(std::string name);
         ~HumanB();
-        void attack();
+        void attack() const;
         void setWeapon(Weapon &weapon);
 };
 
