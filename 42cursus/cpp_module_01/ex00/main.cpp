@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:03:44 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/12 21:33:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/16 19:37:35 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main()
 {
-    Zombie global_stack("Global Stack Zombie");
+    Zombie global_stack("Data Zombie");
     Zombie *heap;
 
-    randomChump("Local Stack Zombie");
+    randomChump("Stack Zombie");
     heap = newZombie("Heap Zombie");
     heap->announce();
     delete heap;
