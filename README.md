@@ -15,7 +15,7 @@
 |8|minishell|[bash 기반 minishell 만들기](https://github.com/dpfls0922/minishell.git)|
 |9|philosophers|[식사하는 철학자 교착상태 해결하기](42cursus/philosophers/README.md)|
 |10|Netpractice|네트워크 공부|
-|11|cub3d|레이캐스팅 알고리즘으로 3D게임 구현하기|
+|11|cub3d|[레이캐스팅 알고리즘으로 3D게임 구현하기](https://github.com/dpfls0922/42-cub3d.git)|
 |12|CPP_Module|CPP 모듈 구현하기|
  
 (업데이트 예정)
