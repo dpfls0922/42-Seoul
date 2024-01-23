@@ -69,7 +69,7 @@ Don’t forget to add more tests to your program.
 Exercise : 02
 Repetitive work
 Turn-in directory : ex02/
-Files to turn in : Same as previous exercise + ClapTrap.cpp ClapTrap.hpp
+Files to turn in : Same as previous exercise + TragTrap.cpp TragTrap.hpp
 Forbidden functions : None
 ```
 
