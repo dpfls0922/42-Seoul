@@ -13,7 +13,7 @@ class ClapTrap {
         ClapTrap();
         ~ClapTrap();
         ClapTrap(std::string name);
-        ClapTrap(const ClapTrap& ClapTrap);
+        ClapTrap(const ClapTrap& obj);
         ClapTrap& operator=(const ClapTrap& obj);
 
         void attack(const std::string& target);
