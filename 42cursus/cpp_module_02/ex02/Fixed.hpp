@@ -40,7 +40,6 @@ class Fixed{
         static const Fixed &min(const Fixed &fix1, const Fixed &fix2);
         static Fixed &max(Fixed &fix1, Fixed &fix2);
         static const Fixed &max(const Fixed &fix1, const Fixed &fix2);
-        ~Fixed();
 };
 std::ostream &operator<<(std::ostream &os, const Fixed &obj);
 #endif
