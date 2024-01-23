@@ -3,6 +3,7 @@
 
 ScavTrap::ScavTrap()
 {
+	this->name = "default";
     this->hitPoint = 100;
     this->energyPoint = 50;
     this->attackDamage = 20;
