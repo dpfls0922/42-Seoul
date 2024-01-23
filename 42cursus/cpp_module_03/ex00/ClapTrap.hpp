@@ -26,4 +26,4 @@ class ClapTrap {
         unsigned int getAttackDamage() const;
 };
 
-#endifs
+#endif
