@@ -22,7 +22,8 @@ int main()
 		meta[i]->makeSound();
 	for(int i = 0; i < 4; i++)
 		delete meta[i];
-
+	
+	std::cout << "=================================\n";
 	Dog *dog1 = new Dog();
 	Dog *dog2 = new Dog();
 	std::cout << std::endl;
