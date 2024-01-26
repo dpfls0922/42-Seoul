@@ -12,7 +12,6 @@ Brain::Brain()
 
 Brain::Brain(std::string idea)
 {
-
     for (int i = 0; i < 100; i++)
     {
         this->ideas[i] = idea;
