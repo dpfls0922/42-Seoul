@@ -2,9 +2,9 @@
 NAME		=	./a.out
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS		=	main.cpp
+SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-INCLUDE		=	Animal.hpp
+INCLUDE		=	Animal.hpp Cat.hpp Dog.hpp
 
 all: $(NAME)
 
