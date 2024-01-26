@@ -1,27 +1,45 @@
 
 #include "Polymorphism.hpp"
 
+void	system_check(void)
+{
+	system("leaks a.out");
+}
+
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* wrong = new WrongCat();
-	const WrongCat wrongCat;
+	atexit(system_check);
 
-	std::cout << "getType : " << j->getType() << std::endl;
-	j->makeSound();
-	std::cout << "getType : " << i->getType() << std::endl;
-	i->makeSound();
-	std::cout << "getType : " << meta->getType() << std::endl;
-	meta->makeSound();
-	std::cout << "getType : " << wrong->getType() << std::endl;
-	wrong->makeSound();
-	wrongCat.makeSound();
+	Animal  *meta[4];
+	for(int i = 0; i < 4; i++)
+	{
+		if (i < 2)
+			meta[i] = new Cat();
+		else
+			meta[i] = new Dog();
+	}
+	for(int i = 0; i < 4; i++)
+		meta[i]->makeSound();
+	for(int i = 0; i < 4; i++)
+		delete meta[i];
 
-	delete meta;
-	delete j;
-	delete i;
-	delete wrong;
+	Dog *dog1 = new Dog();
+	Dog *dog2 = new Dog();
+	std::cout << std::endl;
+
+	std::cout << "Dog1's first idea is "<< dog1->getDogIdea(0) << std::endl;
+
+	dog1->setDogIdea(0, "something");
+	std::cout << "Dog1's first idea is "<< dog1->getDogIdea(0) << std::endl;
+
+	*dog2 = *dog1;
+	std::cout << "Dog2's first idea is "<< dog2->getDogIdea(0) << std::endl;
+
+	std::cout << std::endl;
+	delete dog1;
+	dog1 = NULL;
+	delete dog2;
+	dog2 = NULL;
+
 	return 0;
 }
