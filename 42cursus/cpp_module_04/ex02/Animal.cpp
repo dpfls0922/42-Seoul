@@ -28,11 +28,6 @@ Animal::~Animal(void)
 	std::cout << "Animal Destructor called\n";
 }
 
-void Animal::makeSound(void) const
-{
-	std::cout << "Animal class can not make sound\n";	
-}
-
 std::string Animal::getType(void) const
 {
 	return (this->type);
