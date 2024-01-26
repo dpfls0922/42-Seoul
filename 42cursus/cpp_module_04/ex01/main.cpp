@@ -42,6 +42,11 @@ int main()
 	*dog2 = *dog1;
 	std::cout << "Dog2's first idea is "<< dog2->getDogIdea(0) << std::endl;
 
+	// deep-copy
+	dog1->setDogIdea(0, "change");
+	std::cout << "Dog1's first idea is "<< dog1->getDogIdea(0) << std::endl;
+	std::cout << "Dog2's first idea is "<< dog2->getDogIdea(0) << std::endl;
+
 	std::cout << std::endl;
 	delete dog1;
 	dog1 = NULL;
