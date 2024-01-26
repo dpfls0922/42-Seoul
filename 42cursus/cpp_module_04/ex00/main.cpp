@@ -1,6 +1,5 @@
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "Polymorphism.hpp"
 
 int main()
 {
