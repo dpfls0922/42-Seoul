@@ -10,6 +10,12 @@ int main()
 {
 	atexit(system_check);
 
+	// const Animal* j = new Dog();
+	// const Animal* i = new Cat();
+	// delete j;
+	// delete i;
+	// std::cout << "=================================\n";
+
 	Animal  *meta[4];
 	for(int i = 0; i < 4; i++)
 	{
