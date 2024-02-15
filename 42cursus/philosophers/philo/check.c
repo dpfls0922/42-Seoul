@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:08:01 by yerilee           #+#    #+#             */
-/*   Updated: 2023/12/30 01:00:31 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/05 16:03:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	check_total_eat(t_argv *digning)
 	total_eat_cnt = digning->total_eat_cnt;
 	pthread_mutex_unlock(&digning->m_total_eat_cnt);
 	if (digning->argc == 6
-		&& total_eat_cnt >= digning->numbers_of_philo * digning->must_eat_cnt)
+		&& total_eat_cnt >= digning->numbers_of_philo * digning->must_eat_cnt
+		&& digning->numbers_of_philo != 1)
 		return (1);
 	return (0);
 }
