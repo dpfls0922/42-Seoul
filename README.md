@@ -3,7 +3,7 @@
   
 ## 🍞 42 cursus
 
-- 진행 기간 : 2023.03.13 ~
+- 진행 기간 : 2023.03.13 ~ 2024.11.30
 
 
 ## 🍞 Project
@@ -22,5 +22,3 @@
 |10|Netpractice|[네트워크 공부](42cursus/NetPractice/README.md)|
 |11|cub3d|[레이캐스팅 알고리즘으로 3D게임 구현하기](https://github.com/dpfls0922/42-cub3d.git)|
 |12|CPP_Module|CPP 모듈 구현하기|
- 
-(업데이트 예정)
